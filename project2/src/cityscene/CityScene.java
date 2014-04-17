@@ -137,7 +137,7 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
         gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
         
         setCamera(gl, glu);
-        sunlight(gl);
+//        sunlight(gl);
 
         gl.glMatrixMode(GL.GL_MODELVIEW);
 
@@ -214,25 +214,25 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
         gl.glFlush();
     }//end of display()
     
-    private void sunlight( GL gl )
-    {
-        gl.glEnable(GL.GL_LIGHTING);
-        gl.glEnable(GL.GL_LIGHT0);
-        
-        float[] lightPos = { 0,10,-1000,1 };        // light position
-        float[] noAmbient = { 0.2f, 0.2f, 0.2f, 1f };     // ambient light
-        float[] diffuse = { diffuseBrightness, diffuseBrightness, diffuseBrightness, 1f };   // diffuse colour
-        float[] spec =    { 1f, 0.6f, 0f, 1f }; // specular light
-        
-        // properties of the light
-        gl.glLightfv(GL.GL_LIGHT0, GL.GL_AMBIENT, noAmbient, 0);
-        gl.glLightfv(GL.GL_LIGHT0, GL.GL_SPECULAR, spec, 0);
-        gl.glLightfv(GL.GL_LIGHT0, GL.GL_DIFFUSE, diffuse, 0);
-        gl.glLightfv(GL.GL_LIGHT0, GL.GL_POSITION, lightPos, 0);
-        
-        gl.glColorMaterial(GL.GL_FRONT_AND_BACK, GL.GL_AMBIENT_AND_DIFFUSE);
-        gl.glEnable(GL.GL_COLOR_MATERIAL);
-    }
+//    private void sunlight( GL gl )
+//    {
+//        gl.glEnable(GL.GL_LIGHTING);
+//        gl.glEnable(GL.GL_LIGHT0);
+//        
+//        float[] lightPos = { 0,10,-1000,1 };        // light position
+//        float[] noAmbient = { 0.2f, 0.2f, 0.2f, 1f };     // ambient light
+//        float[] diffuse = { diffuseBrightness, diffuseBrightness, diffuseBrightness, 1f };   // diffuse colour
+//        float[] spec =    { 1f, 0.6f, 0f, 1f }; // specular light
+//        
+//        // properties of the light
+//        gl.glLightfv(GL.GL_LIGHT0, GL.GL_AMBIENT, noAmbient, 0);
+//        gl.glLightfv(GL.GL_LIGHT0, GL.GL_SPECULAR, spec, 0);
+//        gl.glLightfv(GL.GL_LIGHT0, GL.GL_DIFFUSE, diffuse, 0);
+//        gl.glLightfv(GL.GL_LIGHT0, GL.GL_POSITION, lightPos, 0);
+//        
+//        gl.glColorMaterial(GL.GL_FRONT_AND_BACK, GL.GL_AMBIENT_AND_DIFFUSE);
+//        gl.glEnable(GL.GL_COLOR_MATERIAL);
+//    }
 
 //    private void plantTree(GLAutoDrawable drawable, float coord_x, float coord_z){
 //      GL gl = drawable.getGL();
