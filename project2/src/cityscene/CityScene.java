@@ -391,101 +391,102 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
 
         drawSky(gl);
 
-        
-        // lower right sidewalk
-        gl.glColor3f(0.3f, 0.3f, 0.3f); // Grey
-        gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(-1.0f,  15.0f, 0f);
-        gl.glVertex3f(-1.65f, 15.0f, 0f);
-        gl.glVertex3f(-1.65f, 1.0f, 0f);
-        gl.glVertex3f(-1.0f, 1.0f, 0f);
-        
-        gl.glVertex3f(-1.65f, 1.00f, 0f);
-        gl.glVertex3f(-1.65f, 1.65f, 0f);
-        gl.glVertex3f(-15.0f, 1.65f, 0f);
-        gl.glVertex3f(-15.0f, 1.0f, 0f);
-        
-        
-        // upper right sidewalk
-        gl.glVertex3f(-1.0f, -15.0f, 0f);
-        gl.glVertex3f(-1.65f, -15.0f, 0f);
-        gl.glVertex3f(-1.65f, -1.0f, 0f);
-        gl.glVertex3f(-1.0f, -1.0f, 0f);
+//        
+////        // lower right sidewalk
+////        gl.glColor3f(0.3f, 0.3f, 0.3f); // Grey
+////        gl.glNormal3d(0.0,1.0,1.0);
+////        gl.glVertex3f(-1.0f,  15.0f, 0f);
+////        gl.glVertex3f(-1.65f, 15.0f, 0f);
+////        gl.glVertex3f(-1.65f, 1.0f, 0f);
+////        gl.glVertex3f(-1.0f, 1.0f, 0f);
+//        
+//        gl.glVertex3f(-1.65f, 1.00f, 0f);
+//        gl.glVertex3f(-1.65f, 1.65f, 0f);
+//        gl.glVertex3f(-15.0f, 1.65f, 0f);
+//        gl.glVertex3f(-15.0f, 1.0f, 0f);
+//        
+//        
+////        // upper right sidewalk
+////        gl.glVertex3f(-1.0f, -15.0f, 0f);
+////        gl.glVertex3f(-1.65f, -15.0f, 0f);
+////        gl.glVertex3f(-1.65f, -1.0f, 0f);
+////        gl.glVertex3f(-1.0f, -1.0f, 0f);
+//
+//        gl.glVertex3f(-1.65f, -1.00f, 0f);
+//        gl.glVertex3f(-1.65f, -1.65f, 0f);
+//        gl.glVertex3f(-15.0f, -1.65f, 0f);
+//        gl.glVertex3f(-15.0f, -1.00f, 0f);
+//        
+//        
+////        // upper left sidewalk
+////        gl.glNormal3d(0.0,1.0,1.0);
+////        gl.glVertex3f(1.0f,  -15.0f, 0f);
+////        gl.glVertex3f(1.65f, -15.0f, 0f); 
+////        gl.glVertex3f(1.65f,  -1.0f, 0f);
+////        gl.glVertex3f(1.0f,   -1.0f, 0f);        
+//
+//        gl.glVertex3f(1.65f, -1.00f, 0f);
+//        gl.glVertex3f(1.65f, -1.65f, 0f);
+//        gl.glVertex3f(15.0f, -1.65f, 0f);
+//        gl.glVertex3f(15.0f, -1.00f, 0f);
+//        
+//        
+////        // lower left sidewalk
+////        gl.glVertex3f(1.0f, 15.0f, 0f);
+////        gl.glVertex3f(1.65f, 15.0f, 0f);
+////        gl.glVertex3f(1.65f, 1.0f, 0f);
+////        gl.glVertex3f(1.0f, 1.0f, 0f);
+//        
+//        gl.glVertex3f(1.65f, 1.00f, 0f);
+//        gl.glVertex3f(1.65f, 1.65f, 0f);
+//        gl.glVertex3f(15.0f, 1.65f, 0f);
+//        gl.glVertex3f(15.0f, 1.00f, 0f);
+//        
+//        /***********************************/  
+//        // lower right field
+//        gl.glColor3f(0.0f, 0.4f, 0.0f); // Dark Green    
+//        gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(-1.66f, 15.0f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(-15.0f, 15.0f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(-15.0f,  1.66f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(-1.66f,  1.66f, 0f);
+//        
+//        // upper right field
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(-1.66f, -15.0f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(-15.0f, -15.0f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(-15.0f,  -1.66f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(-1.66f,  -1.66f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        
+//        // upper left field
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(1.66f, -15.0f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(15.0f, -15.0f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(15.0f,  -1.66f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(1.66f,  -1.66f, 0f);
+//
+//        // lower left field
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(1.66f, 15.0f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(15.0f, 15.0f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(15.0f,  1.66f, 0f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glVertex3f(1.66f,  1.66f, 0f);
 
-        gl.glVertex3f(-1.65f, -1.00f, 0f);
-        gl.glVertex3f(-1.65f, -1.65f, 0f);
-        gl.glVertex3f(-15.0f, -1.65f, 0f);
-        gl.glVertex3f(-15.0f, -1.00f, 0f);
-        
-        
-        // upper left sidewalk
-        gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(1.0f,  -15.0f, 0f);
-        gl.glVertex3f(1.65f, -15.0f, 0f); 
-        gl.glVertex3f(1.65f,  -1.0f, 0f);
-        gl.glVertex3f(1.0f,   -1.0f, 0f);        
-
-        gl.glVertex3f(1.65f, -1.00f, 0f);
-        gl.glVertex3f(1.65f, -1.65f, 0f);
-        gl.glVertex3f(15.0f, -1.65f, 0f);
-        gl.glVertex3f(15.0f, -1.00f, 0f);
-        
-        
-        // lower left sidewalk
-        gl.glVertex3f(1.0f, 15.0f, 0f);
-        gl.glVertex3f(1.65f, 15.0f, 0f);
-        gl.glVertex3f(1.65f, 1.0f, 0f);
-        gl.glVertex3f(1.0f, 1.0f, 0f);
-        
-        gl.glVertex3f(1.65f, 1.00f, 0f);
-        gl.glVertex3f(1.65f, 1.65f, 0f);
-        gl.glVertex3f(15.0f, 1.65f, 0f);
-        gl.glVertex3f(15.0f, 1.00f, 0f);
-        
-        /***********************************/  
-        // lower right field
-        gl.glColor3f(0.0f, 0.4f, 0.0f); // Dark Green    
-        gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(-1.66f, 15.0f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(-15.0f, 15.0f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(-15.0f,  1.66f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(-1.66f,  1.66f, 0f);
-        
-        // upper right field
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(-1.66f, -15.0f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(-15.0f, -15.0f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(-15.0f,  -1.66f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(-1.66f,  -1.66f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        
-        // upper left field
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(1.66f, -15.0f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(15.0f, -15.0f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(15.0f,  -1.66f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(1.66f,  -1.66f, 0f);
-
-        // lower left field
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(1.66f, 15.0f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(15.0f, 15.0f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(15.0f,  1.66f, 0f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glVertex3f(1.66f,  1.66f, 0f);
-
-        gl.glColor3f(0.1f, 0.1f, 0.1f); // Street / subfloor
+//        gl.glColor3f(0.1f, 0.1f, 0.1f); // Street / subfloor
+        gl.glColor3f(0.0f, 0.4f, 0.0f); // Dark Green
         gl.glVertex3f( 40.0f,  40.0f, -0.9f);
         gl.glVertex3f( 40.0f, -40.0f, -0.9f);
         gl.glVertex3f(-40.0f, -40.0f, -0.9f);
