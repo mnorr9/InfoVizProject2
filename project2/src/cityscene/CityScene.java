@@ -125,7 +125,7 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
         tree = new Tree();
         createDoubleLaneLine(gl);
         createGreenFields(gl);
-        createZebraCrossing(gl);
+//        createZebraCrossing(gl);
 
     }
 
@@ -288,99 +288,99 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
         text.flush();
     }//displayCameraPositionInfo
 
-    private void createZebraCrossing(GL gl) {
-
-        int index = gl.glGenLists(3);
-        gl.glNewList(index, GL.GL_COMPILE);
-
-        // ZEBRA CROSSING ( pedestrian crossing )
-        gl.glBegin(GL.GL_LINE_LOOP);
-        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
-        gl.glLineWidth(2.5f);
-        gl.glVertex3f(1.0f, 1.0f, 0.0f);
-        gl.glVertex3f(1.0f, -1.0f, 0.0f);
-        gl.glVertex3f(-1.0f, -1.0f, 0.0f);
-        gl.glVertex3f(-1.0f, 1.0f, 0.0f);
-        gl.glEnd();
-
-        // NORTH CROSSING
-        float x1 = (float) -0.9;
-        float x2 = (float) -0.7;
-        float interval = (float) -0.4;
-        int blocks = 5;
-
-        gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
-
-        for (int i = 1; i <= blocks; i++) {
-            gl.glVertex3f(x1, 1.2f, 0.0f);
-            gl.glVertex3f(x2, 1.2f, 0.0f);
-            gl.glVertex3f(x2, 1.5f, 0.0f);
-            gl.glVertex3f(x1, 1.5f, 0.0f);
-
-            x1 = (float) (x1 - interval);
-            x2 = (float) (x2 - interval);
-
-        }// end of for loop
-        gl.glEnd();
-
-        // South Crossing
-        x1 = (float) -0.9;
-        x2 = (float) -0.7;
-        gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
-
-        for (int i = 1; i <= blocks; i++) {
-            gl.glVertex3f(x1, -1.2f, 0.0f);
-            gl.glVertex3f(x2, -1.2f, 0.0f);
-            gl.glVertex3f(x2, -1.5f, 0.0f);
-            gl.glVertex3f(x1, -1.5f, 0.0f);
-
-            x1 = (float) (x1 - interval);
-            x2 = (float) (x2 - interval);
-
-        }// end of for loop
-        gl.glEnd();
-
-        // East Crossing
-        float y1 = (float) -0.9;
-        float y2 = (float) -0.7;
-
-        gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
-
-        for (int i = 1; i <= blocks; i++) {
-            gl.glVertex3f(1.2f, y1, 0.0f);
-            gl.glVertex3f(1.2f, y2, 0.0f);
-            gl.glVertex3f(1.5f, y2, 0.0f);
-            gl.glVertex3f(1.5f, y1, 0.0f);
-
-            y1 = (float) (y1 - interval);
-            y2 = (float) (y2 - interval);
-
-        }// end of for loop
-        gl.glEnd();
-
-        // West Crossing
-        y1 = (float) -0.9;
-        y2 = (float) -0.7;
-
-        gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
-
-        for (int i = 1; i <= blocks; i++) {
-            gl.glVertex3f(-1.2f, y1, 0.0f);
-            gl.glVertex3f(-1.2f, y2, 0.0f);
-            gl.glVertex3f(-1.5f, y2, 0.0f);
-            gl.glVertex3f(-1.5f, y1, 0.0f);
-
-            y1 = (float) (y1 - interval);
-            y2 = (float) (y2 - interval);
-
-        }// end of for loop
-        gl.glEnd();
-        gl.glEndList();
-    }
+//    private void createZebraCrossing(GL gl) {
+//
+//        int index = gl.glGenLists(3);
+//        gl.glNewList(index, GL.GL_COMPILE);
+//
+//        // ZEBRA CROSSING ( pedestrian crossing )
+//        gl.glBegin(GL.GL_LINE_LOOP);
+//        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
+//        gl.glLineWidth(2.5f);
+//        gl.glVertex3f(1.0f, 1.0f, 0.0f);
+//        gl.glVertex3f(1.0f, -1.0f, 0.0f);
+//        gl.glVertex3f(-1.0f, -1.0f, 0.0f);
+//        gl.glVertex3f(-1.0f, 1.0f, 0.0f);
+//        gl.glEnd();
+//
+//        // NORTH CROSSING
+//        float x1 = (float) -0.9;
+//        float x2 = (float) -0.7;
+//        float interval = (float) -0.4;
+//        int blocks = 5;
+//
+//        gl.glBegin(GL.GL_QUADS);
+//        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
+//
+//        for (int i = 1; i <= blocks; i++) {
+//            gl.glVertex3f(x1, 1.2f, 0.0f);
+//            gl.glVertex3f(x2, 1.2f, 0.0f);
+//            gl.glVertex3f(x2, 1.5f, 0.0f);
+//            gl.glVertex3f(x1, 1.5f, 0.0f);
+//
+//            x1 = (float) (x1 - interval);
+//            x2 = (float) (x2 - interval);
+//
+//        }// end of for loop
+//        gl.glEnd();
+//
+//        // South Crossing
+//        x1 = (float) -0.9;
+//        x2 = (float) -0.7;
+//        gl.glBegin(GL.GL_QUADS);
+//        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
+//
+//        for (int i = 1; i <= blocks; i++) {
+//            gl.glVertex3f(x1, -1.2f, 0.0f);
+//            gl.glVertex3f(x2, -1.2f, 0.0f);
+//            gl.glVertex3f(x2, -1.5f, 0.0f);
+//            gl.glVertex3f(x1, -1.5f, 0.0f);
+//
+//            x1 = (float) (x1 - interval);
+//            x2 = (float) (x2 - interval);
+//
+//        }// end of for loop
+//        gl.glEnd();
+//
+//        // East Crossing
+//        float y1 = (float) -0.9;
+//        float y2 = (float) -0.7;
+//
+//        gl.glBegin(GL.GL_QUADS);
+//        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
+//
+//        for (int i = 1; i <= blocks; i++) {
+//            gl.glVertex3f(1.2f, y1, 0.0f);
+//            gl.glVertex3f(1.2f, y2, 0.0f);
+//            gl.glVertex3f(1.5f, y2, 0.0f);
+//            gl.glVertex3f(1.5f, y1, 0.0f);
+//
+//            y1 = (float) (y1 - interval);
+//            y2 = (float) (y2 - interval);
+//
+//        }// end of for loop
+//        gl.glEnd();
+//
+//        // West Crossing
+//        y1 = (float) -0.9;
+//        y2 = (float) -0.7;
+//
+//        gl.glBegin(GL.GL_QUADS);
+//        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
+//
+//        for (int i = 1; i <= blocks; i++) {
+//            gl.glVertex3f(-1.2f, y1, 0.0f);
+//            gl.glVertex3f(-1.2f, y2, 0.0f);
+//            gl.glVertex3f(-1.5f, y2, 0.0f);
+//            gl.glVertex3f(-1.5f, y1, 0.0f);
+//
+//            y1 = (float) (y1 - interval);
+//            y2 = (float) (y2 - interval);
+//
+//        }// end of for loop
+//        gl.glEnd();
+//        gl.glEndList();
+//    }
 
     private void createGreenFields(GL gl) {
 
