@@ -150,55 +150,55 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
             gl.glCallList(3); // Creates Zebra Crossing Box
           gl.glPopMatrix();
             
-          plantTree(drawable, 10.0f, -3.0f);
-          plantTree(drawable, -3.0f, -3.0f);
-          plantTree(drawable, -2.0f, -4.0f);
-        
-          plantTree(drawable, 5.0f, 10.0f);
-          plantTree(drawable, 5.0f,  5.0f);
-          plantTree(drawable,-2.0f,  5.0f);        
-        
-          // Trees at the borders
-          plantTree(drawable, -2.0f, -15.0f);
-          plantTree(drawable, 5.0f, -10.0f);
-        
-          
-          plantTree(drawable, -10.0f, -10.0f);
-          plantTree(drawable, 5.0f, -8.0f);
-        
-          drawBuildings(drawable, 3.0f, -1.66f);
-          drawBuildings(drawable, 4.5f, -1.66f);
-          drawStores(drawable, -4.5f,  -1.66f);
-
-          drawBuildings(drawable, -6.0f, -1.66f);
-          
-          gl.glPushMatrix();
-            gl.glRotatef(90, 0, 1, 0);
-            drawBuildings(drawable, -10.0f, -1.66f);
-            drawStores(drawable, -8.5f, -1.66f);         
-          gl.glPopMatrix();
+//          plantTree(drawable, 10.0f, -3.0f);
+//          plantTree(drawable, -3.0f, -3.0f);
+//          plantTree(drawable, -2.0f, -4.0f);
+//        
+//          plantTree(drawable, 5.0f, 10.0f);
+//          plantTree(drawable, 5.0f,  5.0f);
+//          plantTree(drawable,-2.0f,  5.0f);        
+//        
+//          // Trees at the borders
+//          plantTree(drawable, -2.0f, -15.0f);
+//          plantTree(drawable, 5.0f, -10.0f);
+//        
+//          
+//          plantTree(drawable, -10.0f, -10.0f);
+//          plantTree(drawable, 5.0f, -8.0f);
+//        
+//          drawBuildings(drawable, 3.0f, -1.66f);
+//          drawBuildings(drawable, 4.5f, -1.66f);
+//          drawStores(drawable, -4.5f,  -1.66f);
+//
+//          drawBuildings(drawable, -6.0f, -1.66f);
+//          
+//          gl.glPushMatrix();
+//            gl.glRotatef(90, 0, 1, 0);
+//            drawBuildings(drawable, -10.0f, -1.66f);
+//            drawStores(drawable, -8.5f, -1.66f);         
+//          gl.glPopMatrix();
           
         //Semi random Tree pattern  
-        for (int y = 5; y <= 12; y++) {
-            for (int x = 5; x <= 12; x++) {
-                plantTree(drawable, (x), (y));
-                plantTree(drawable, -(x), -(y));
-                x++;
-                plantTree(drawable, -(x), (y));
-                y++;
-                plantTree(drawable, (x), -(y));
-            }
-        }
+//        for (int y = 5; y <= 12; y++) {
+//            for (int x = 5; x <= 12; x++) {
+//                plantTree(drawable, (x), (y));
+//                plantTree(drawable, -(x), -(y));
+//                x++;
+//                plantTree(drawable, -(x), (y));
+//                y++;
+//                plantTree(drawable, (x), -(y));
+//            }
+//        }
           
           
-          gl.glPushMatrix();
-            gl.glRotatef(180, 0, 1, 0);
-            drawBuildings(drawable, -10.0f, -1.66f);
-            drawStores(drawable, -8.5f, -1.66f);
-            drawBuildings(drawable, 10.0f, -1.66f);
-            drawBuildings(drawable, 14.0f, -1.66f); 
-            drawStores(drawable, 8.5f, -1.66f); 
-          gl.glPopMatrix();
+//          gl.glPushMatrix();
+//            gl.glRotatef(180, 0, 1, 0);
+//            drawBuildings(drawable, -10.0f, -1.66f);
+//            drawStores(drawable, -8.5f, -1.66f);
+//            drawBuildings(drawable, 10.0f, -1.66f);
+//            drawBuildings(drawable, 14.0f, -1.66f); 
+//            drawStores(drawable, 8.5f, -1.66f); 
+//          gl.glPopMatrix();
           
           
           //drawCar(gl);
@@ -234,36 +234,36 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
         gl.glEnable(GL.GL_COLOR_MATERIAL);
     }
 
-    private void plantTree(GLAutoDrawable drawable, float coord_x, float coord_z){
-      GL gl = drawable.getGL();
-
-      gl.glPushMatrix();
-        gl.glTranslatef(coord_x, 0.0f, coord_z);
-        tree.drawTree(drawable); 
-      gl.glPopMatrix();
-    }
+//    private void plantTree(GLAutoDrawable drawable, float coord_x, float coord_z){
+//      GL gl = drawable.getGL();
+//
+//      gl.glPushMatrix();
+//        gl.glTranslatef(coord_x, 0.0f, coord_z);
+//        tree.drawTree(drawable); 
+//      gl.glPopMatrix();
+//    }
     
-    private void drawBuildings(GLAutoDrawable drawable, float coord_x, float coord_z) {
-      GL gl = drawable.getGL();
-
-      // draw building #1
-      gl.glPushMatrix();
-        gl.glTranslated(coord_x, 0.0, coord_z);
-        gl.glRotated( -90, 1.0, 0.0, 0.0 );
-        building.drawBuilding(drawable);
-      gl.glPopMatrix();
-    }
+//    private void drawBuildings(GLAutoDrawable drawable, float coord_x, float coord_z) {
+//      GL gl = drawable.getGL();
+//
+//      // draw building #1
+//      gl.glPushMatrix();
+//        gl.glTranslated(coord_x, 0.0, coord_z);
+//        gl.glRotated( -90, 1.0, 0.0, 0.0 );
+//        building.drawBuilding(drawable);
+//      gl.glPopMatrix();
+//    }
     
-    private void drawStores(GLAutoDrawable drawable, float coord_x, float coord_z) {
-      GL gl = drawable.getGL();
-
-      // draw building #1
-      gl.glPushMatrix();
-        gl.glTranslated(coord_x, 0.0, coord_z);
-        gl.glRotated( -90, 1.0, 0.0, 0.0 );
-        Store.drawStore(drawable);
-      gl.glPopMatrix();
-    }
+//    private void drawStores(GLAutoDrawable drawable, float coord_x, float coord_z) {
+//      GL gl = drawable.getGL();
+//
+//      // draw building #1
+//      gl.glPushMatrix();
+//        gl.glTranslated(coord_x, 0.0, coord_z);
+//        gl.glRotated( -90, 1.0, 0.0, 0.0 );
+//        Store.drawStore(drawable);
+//      gl.glPopMatrix();
+//    }
 
     private void drawLights( GLAutoDrawable drawable )
     {
