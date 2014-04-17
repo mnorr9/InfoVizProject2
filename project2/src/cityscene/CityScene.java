@@ -60,8 +60,8 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
     private Animator anim;
     private TextRenderer text;
     private DecimalFormat form;
-    private Tree tree;
-    private Building building;
+//    private Tree tree;
+//    private Building building;
     private TrafficLight trafficLight;
     private float sceneBoundary_x;
     private float sceneBoundary_z;
@@ -125,7 +125,7 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
         add(canvas);
         anim = new Animator(canvas);
         anim.start();
-        building = new Building();
+//        building = new Building();
         car = new SpCar();
         trafficLight = new TrafficLight();
 
@@ -152,7 +152,7 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
         //Set color of display window to black.
         gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
-        tree = new Tree();
+//        tree = new Tree();
 //        createDoubleLaneLine(gl);
         createGreenFields(gl);
 //        createZebraCrossing(gl);
