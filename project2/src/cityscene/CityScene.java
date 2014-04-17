@@ -123,7 +123,7 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
         gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
         tree = new Tree();
-        createDoubleLaneLine(gl);
+//        createDoubleLaneLine(gl);
         createGreenFields(gl);
 //        createZebraCrossing(gl);
 
@@ -507,7 +507,7 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
 // gl.glVertex3f( 15.0f, -15.0f, 30f);
 
 // yz plane (side plane)
-        gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glNormal3d(0.0,1.0,1.0);
         gl.glVertex3f(15.0f,  15.0f, 15.0f);
         //gl.glNormal3d(0.0,1.0,1.0);
         gl.glVertex3f(15.0f,  15.0f,  0.0f);
@@ -549,110 +549,110 @@ public class CityScene extends JFrame implements GLEventListener, KeyListener {
 
     }
     
-    private void createDoubleLaneLine(GL gl) {
-        // create one display list
-        int index = gl.glGenLists(1);
-        gl.glNewList(index, GL.GL_COMPILE);
-        gl.glLineWidth(3.0f);
-        // North
-        // ***************************************
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(2.5f);
-        //gl.glNormal3d(0.0,1.0,0.0);
-        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
-        gl.glVertex3f(0.0f, 1.8f, 0.0f);
-        gl.glVertex3f(0.0f, 15.0f, 0.0f);
-        gl.glEnd();
-
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(3.5f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
-        gl.glVertex3f(-0.1f, 1.8f, 0.0f);
-        gl.glVertex3f(-0.1f, 15.0f, 0.0f);
-        gl.glEnd();
-
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(3.5f);
-        //gl.glNormal3d(0.0,1.0,1.0);
-        gl.glColor3f(1.0f, 1.0f, 1.0f); // White
-        gl.glVertex3f(0.9f, 1.7f, 0.0f);
-        gl.glVertex3f(-0.9f, 1.7f, 0.0f);
-        gl.glEnd();
-
-        // South
-        // ***************************************
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(2.5f);
-        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
-        gl.glVertex3f(0.0f, -1.8f, 0.0f);
-        gl.glVertex3f(0.0f, -15.0f, 0.0f);
-        gl.glEnd();
-
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(3.5f);
-        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
-        gl.glVertex3f(-0.1f, -1.8f, 0.0f);
-        gl.glVertex3f(-0.1f, -15.0f, 0.0f);
-        gl.glEnd();
-
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(3.5f);
-        gl.glColor3f(1.0f, 1.0f, 1.0f); // White
-        gl.glVertex3f(0.9f, -1.7f, 0.0f);
-        gl.glVertex3f(-0.9f, -1.7f, 0.0f);
-        gl.glEnd();
-
-
-        // EAST
-        // ***************************************
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(2.5f);
-        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
-        gl.glVertex3f(1.8f, 0.0f, 0.0f);
-        gl.glVertex3f(15.0f, 0.0f, 0.0f);
-        gl.glEnd();
-
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(3.5f);
-        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
-        gl.glVertex3f(1.8f, -0.1f, 0.0f);
-        gl.glVertex3f(15.0f, -0.1f, 0.0f);
-        gl.glEnd();
-
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(3.5f);
-        gl.glColor3f(1.0f, 1.0f, 1.0f); // White
-        gl.glVertex3f(1.7f, 0.9f, 0.0f);
-        gl.glVertex3f(1.7f, -0.9f, 0.0f);
-        gl.glEnd();
-
-        // WEST
-        // ***************************************
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(2.5f);
-        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
-        gl.glVertex3f(-1.8f, 0.0f, 0.0f);
-        gl.glVertex3f(-15.0f, 0.0f, 0.0f);
-        gl.glEnd();
-
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(3.5f);
-        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
-        gl.glVertex3f(-1.8f, -0.1f, 0.0f);
-        gl.glVertex3f(-15.0f, -0.1f, 0.0f);
-        gl.glEnd();
-
-
-        gl.glBegin(GL.GL_LINE_STRIP);
-        gl.glLineWidth(3.5f);
-        gl.glColor3f(1.0f, 1.0f, 1.0f); // White
-        gl.glVertex3f(-1.7f, 0.9f, 0.0f);
-        gl.glVertex3f(-1.7f, -0.9f, 0.0f);
-        gl.glEnd();
-
-        gl.glEndList();
-    }// End of create Double Center Yellow Lines
+//    private void createDoubleLaneLine(GL gl) {
+//        // create one display list
+//        int index = gl.glGenLists(1);
+//        gl.glNewList(index, GL.GL_COMPILE);
+//        gl.glLineWidth(3.0f);
+//        // North
+//        // ***************************************
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(2.5f);
+//        //gl.glNormal3d(0.0,1.0,0.0);
+//        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
+//        gl.glVertex3f(0.0f, 1.8f, 0.0f);
+//        gl.glVertex3f(0.0f, 15.0f, 0.0f);
+//        gl.glEnd();
+//
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(3.5f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
+//        gl.glVertex3f(-0.1f, 1.8f, 0.0f);
+//        gl.glVertex3f(-0.1f, 15.0f, 0.0f);
+//        gl.glEnd();
+//
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(3.5f);
+//        //gl.glNormal3d(0.0,1.0,1.0);
+//        gl.glColor3f(1.0f, 1.0f, 1.0f); // White
+//        gl.glVertex3f(0.9f, 1.7f, 0.0f);
+//        gl.glVertex3f(-0.9f, 1.7f, 0.0f);
+//        gl.glEnd();
+//
+//        // South
+//        // ***************************************
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(2.5f);
+//        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
+//        gl.glVertex3f(0.0f, -1.8f, 0.0f);
+//        gl.glVertex3f(0.0f, -15.0f, 0.0f);
+//        gl.glEnd();
+//
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(3.5f);
+//        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
+//        gl.glVertex3f(-0.1f, -1.8f, 0.0f);
+//        gl.glVertex3f(-0.1f, -15.0f, 0.0f);
+//        gl.glEnd();
+//
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(3.5f);
+//        gl.glColor3f(1.0f, 1.0f, 1.0f); // White
+//        gl.glVertex3f(0.9f, -1.7f, 0.0f);
+//        gl.glVertex3f(-0.9f, -1.7f, 0.0f);
+//        gl.glEnd();
+//
+//
+//        // EAST
+//        // ***************************************
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(2.5f);
+//        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
+//        gl.glVertex3f(1.8f, 0.0f, 0.0f);
+//        gl.glVertex3f(15.0f, 0.0f, 0.0f);
+//        gl.glEnd();
+//
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(3.5f);
+//        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
+//        gl.glVertex3f(1.8f, -0.1f, 0.0f);
+//        gl.glVertex3f(15.0f, -0.1f, 0.0f);
+//        gl.glEnd();
+//
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(3.5f);
+//        gl.glColor3f(1.0f, 1.0f, 1.0f); // White
+//        gl.glVertex3f(1.7f, 0.9f, 0.0f);
+//        gl.glVertex3f(1.7f, -0.9f, 0.0f);
+//        gl.glEnd();
+//
+//        // WEST
+//        // ***************************************
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(2.5f);
+//        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
+//        gl.glVertex3f(-1.8f, 0.0f, 0.0f);
+//        gl.glVertex3f(-15.0f, 0.0f, 0.0f);
+//        gl.glEnd();
+//
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(3.5f);
+//        gl.glColor3f(1.0f, 1.0f, 0.0f); // yellow
+//        gl.glVertex3f(-1.8f, -0.1f, 0.0f);
+//        gl.glVertex3f(-15.0f, -0.1f, 0.0f);
+//        gl.glEnd();
+//
+//
+//        gl.glBegin(GL.GL_LINE_STRIP);
+//        gl.glLineWidth(3.5f);
+//        gl.glColor3f(1.0f, 1.0f, 1.0f); // White
+//        gl.glVertex3f(-1.7f, 0.9f, 0.0f);
+//        gl.glVertex3f(-1.7f, -0.9f, 0.0f);
+//        gl.glEnd();
+//
+//        gl.glEndList();
+//    }// End of create Double Center Yellow Lines
 
     private void setCamera(GL gl, GLU glu) {
       // Change to projection matrix.
