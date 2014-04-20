@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;  
 import java.io.IOException;
 
+import database.Kicker;
+
 
 public class KickerBuilder
 {
@@ -20,6 +22,7 @@ public class KickerBuilder
   
   public void buildKickerDatabase()
   {
+	//TODO: Change this path to where ever the file is.
     String csvFileToRead = "C:\\Users\\David\\Desktop\\iv\\InfoViz Project 2\\InfoViz Project 2\\kicker_stats_2013.csv";
     BufferedReader br = null;
     String line = "";
@@ -69,26 +72,17 @@ public class KickerBuilder
     }
   }
 
-/*
-  public class CsvToJavaObject {  
+  public Kicker getKicker(String kicker_name)
+  {
+    for( Kicker item: kickerList )
+    {
+      if( item.player_name.equals(kicker_name) )
+      {
+        return item;
+      }
+    }
     
-    public void convertCsvToJava() {  
-     
-      // print values stored in carList  
-      printCarList(carList);  
- 
-    }  
-     
-    public void printCarList(List<cars> carListToPrint) {  
-     for (int i = 0; i < carListToPrint.size(); i++) {  
-      System.out.println("CARS [year= " + carListToPrint.get(i).getYear()  
-        + " , make=" + carListToPrint.get(i).getMake()  
-        + " , model=" + carListToPrint.get(i).getModel()  
-        + " , description="  
-        + carListToPrint.get(i).getDescription() + " , price="  
-        + carListToPrint.get(i).getPrice() + "]");  
-     }  
-    }  
-   }  
-*/
+    return null;
+  }
+
 }
