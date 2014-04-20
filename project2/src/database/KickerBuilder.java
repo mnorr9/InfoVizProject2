@@ -84,5 +84,20 @@ public class KickerBuilder
     
     return null;
   }
+  
+  public Kicker getKicker(int kicker_index)
+  {
+    if( kicker_index >= 0 && kicker_index <= kickerList.size() )
+    {
+      return kickerList.get(kicker_index);
+    }
+
+    return null;
+  }
+
+  public int getNumOfKickers()
+  {
+    return kickerList.size();
+  }
 
 }
