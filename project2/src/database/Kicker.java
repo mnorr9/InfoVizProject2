@@ -12,12 +12,10 @@ public class Kicker extends Player
   private double extra_point_attempts;
   private double extra_point_percentage;
   private double extra_point_points;
-  private String splitBy;
+  private static final String splitBy = "-";
   
   public Kicker()
   {
-    splitBy = "-";
-    
     distance_attempted = new FGDistanceStats();
     distance_made      = new FGDistanceStats();
     
@@ -57,5 +55,90 @@ public class Kicker extends Player
     extra_point_percentage        = Double.parseDouble(stat_field[14]);
     extra_point_points            = Double.parseDouble(stat_field[15]);
   }
+
+  public double get10To19FieldGoalsMade()
+  {
+    return distance_made.get10To19FieldGoals();
+  }
   
+  public double get10To19FieldGoalsAttempted()
+  {
+    return distance_attempted.get10To19FieldGoals();
+  }
+  
+  public double get20To29FieldGoalsMade()
+  {
+    return distance_made.get20To29FieldGoals();
+  }
+  
+  public double get20To29FieldGoalsAttempted()
+  {
+    return distance_attempted.get20To29FieldGoals();
+  }
+  
+  public double get30To39FieldGoalsMade()
+  {
+    return distance_made.get30To39FieldGoals();
+  }
+  
+  public double get30To39FieldGoalsAttempted()
+  {
+    return distance_attempted.get30To39FieldGoals();
+  }
+  
+  public double get40To49FieldGoalsMade()
+  {
+    return distance_made.get40To49FieldGoals();
+  }
+  
+  public double get40To49FieldGoalsAttempted()
+  {
+    return distance_attempted.get40To49FieldGoals();
+  }
+  
+  public double get50PlusFieldGoalsMade()
+  {
+    return distance_made.get50PlusFieldGoals();
+  }
+  
+  public double get50PlusFieldGoalsAttempted()
+  {
+    return distance_attempted.get50PlusFieldGoals();
+  }
+
+  public double getFieldGoalsMade()
+  {
+    return field_goals_made;
+  }
+
+  public double getFieldGoalAttempts()
+  {
+    return field_goal_attempts;
+  }
+
+  public double getFieldGoalPercentage()
+  {
+    return field_goal_percentage;
+  }
+  
+  public double getLongestFieldGoal()
+  {
+    return field_goal_long;
+  }
+
+  public double getExtraPointsMade()
+  {
+    return extra_points_made;
+  }
+
+  public double getExtraPointAttempts()
+  {
+    return extra_point_attempts;
+  }
+
+  public double getExtraPointPercentage()
+  {
+    return extra_point_percentage;
+  }
+
 }
