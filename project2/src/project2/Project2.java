@@ -35,6 +35,10 @@ public class Project2 extends javax.swing.JFrame {
 
         sppMainSplit = new javax.swing.JSplitPane();
         pnlSecondary = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        cmbKicker1 = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
+        cmbKicker2 = new javax.swing.JComboBox();
         jScrollPane2 = new javax.swing.JScrollPane();
         pnlPrimary = new javax.swing.JPanel();
         mnbMain = new javax.swing.JMenuBar();
@@ -44,15 +48,45 @@ public class Project2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kicker Viz 0.0.1");
 
+        sppMainSplit.setDividerLocation(-3);
+
+        jLabel1.setText("Kicker#1:");
+
+        cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel2.setText("Kicker#2:");
+
+        cmbKicker2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout pnlSecondaryLayout = new javax.swing.GroupLayout(pnlSecondary);
         pnlSecondary.setLayout(pnlSecondaryLayout);
         pnlSecondaryLayout.setHorizontalGroup(
             pnlSecondaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(pnlSecondaryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlSecondaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSecondaryLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbKicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlSecondaryLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbKicker2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlSecondaryLayout.setVerticalGroup(
             pnlSecondaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(pnlSecondaryLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(pnlSecondaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(cmbKicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlSecondaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbKicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap(396, Short.MAX_VALUE))
         );
 
         sppMainSplit.setLeftComponent(pnlSecondary);
@@ -126,6 +160,10 @@ public class Project2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JComboBox cmbKicker1;
+    public javax.swing.JComboBox cmbKicker2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JScrollPane jScrollPane2;
