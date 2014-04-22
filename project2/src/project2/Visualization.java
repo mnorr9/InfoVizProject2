@@ -142,7 +142,7 @@ public class Visualization implements GLEventListener, KeyListener{
         gl.glPushAttrib(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
         gl.glEnable(gl.GL_TEXTURE_2D);
         
-        gl.glTranslatef(-5, -5, -4);
+        gl.glTranslatef(-5, -5, -4); //Centers the football field graph.
 
          /* create a square on the XY note that OpenGL origin is at the lower 
             left but texture origin is at upper left => it has to be mirrored
