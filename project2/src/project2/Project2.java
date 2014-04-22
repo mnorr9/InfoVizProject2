@@ -42,6 +42,7 @@ public class Project2 extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Kicker Viz 0.0.1");
 
         javax.swing.GroupLayout pnlSecondaryLayout = new javax.swing.GroupLayout(pnlSecondary);
         pnlSecondary.setLayout(pnlSecondaryLayout);
@@ -55,9 +56,6 @@ public class Project2 extends javax.swing.JFrame {
         );
 
         sppMainSplit.setLeftComponent(pnlSecondary);
-
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         pnlPrimary.setLayout(new java.awt.BorderLayout());
         jScrollPane2.setViewportView(pnlPrimary);

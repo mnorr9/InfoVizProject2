@@ -22,6 +22,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Kicker Viz 0.0.1"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="mnbMain"/>
@@ -92,10 +93,6 @@
           </Layout>
         </Container>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-          <Properties>
-            <Property name="horizontalScrollBarPolicy" type="int" value="32"/>
-            <Property name="verticalScrollBarPolicy" type="int" value="22"/>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
               <JSplitPaneConstraints position="right"/>

@@ -69,7 +69,7 @@ public class Visualization implements GLEventListener, KeyListener{
 
         camera_x = 0;
         camera_y = 0;
-        camera_z = -10;
+        camera_z = -16;
         center_x = 0;
         center_y = 0;
         center_z = 2;
@@ -142,17 +142,17 @@ public class Visualization implements GLEventListener, KeyListener{
         gl.glPushAttrib(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
         gl.glEnable(gl.GL_TEXTURE_2D);
         
+        gl.glTranslatef(-5, -5, -4);
 
          /* create a square on the XY note that OpenGL origin is at the lower 
             left but texture origin is at upper left => it has to be mirrored
             (gasman knows why i have to mirror X as well) */
          gl.glBegin(gl.GL_QUADS);
              gl.glRotatef(-90, 1, 0, 0); // Rotate World!
-             gl.glNormal3f(0.0f, 0.0f, 1.0f);
-             gl.glTexCoord2d(1, 1); gl.glVertex3f(0.0f, 0.0f, 0.0f);
-             gl.glTexCoord2d(1, 0); gl.glVertex3f(0.0f, 10.0f, 0.0f);
+             gl.glTexCoord2d(1, 1); gl.glVertex3f( 0.0f,  0.0f, 0.0f);
+             gl.glTexCoord2d(1, 0); gl.glVertex3f( 0.0f, 10.0f, 0.0f);
              gl.glTexCoord2d(0, 0); gl.glVertex3f(10.0f, 10.0f, 0.0f);
-             gl.glTexCoord2d(0, 1); gl.glVertex3f(10.0f, 0.0f, 0.0f);
+             gl.glTexCoord2d(0, 1); gl.glVertex3f(10.0f,  0.0f, 0.0f);
          gl.glEnd();
         
                 displayCameraPositionInfo(drawable);
