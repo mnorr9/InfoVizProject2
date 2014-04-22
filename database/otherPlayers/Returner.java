@@ -1,4 +1,4 @@
-package database;
+package database.otherPlayers;
 
 public class Returner
 {

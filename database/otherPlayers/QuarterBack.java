@@ -1,4 +1,6 @@
-package database;
+package database.otherPlayers;
+
+import database.Player;
 
 public class QuarterBack extends Player
 {
