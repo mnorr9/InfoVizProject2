@@ -22,8 +22,7 @@ public class KickerBuilder
   
   public void buildKickerDatabase()
   {
-	//TODO: Change this path to where ever the file is.
-    String csvFileToRead = "C:\\Users\\David\\Desktop\\iv\\InfoViz Project 2\\InfoViz Project 2\\kicker_stats_2013.csv";
+    String csvFileToRead = "csvFiles/kicker_stats_2013.csv";
     BufferedReader br = null;
     String line = "";
     String splitBy = ",";
