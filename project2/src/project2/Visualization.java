@@ -142,8 +142,9 @@ public class Visualization implements GLEventListener, KeyListener{
         gl.glPushAttrib(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
         gl.glEnable(gl.GL_TEXTURE_2D);
         
-        gl.glTranslatef(-5, -5, -4); //Centers the football field graph.
+        gl.glTranslatef(-5f, -5f, -4f); //Centers the football field graph.
 
+        
          /* create a square on the XY note that OpenGL origin is at the lower 
             left but texture origin is at upper left => it has to be mirrored
             (gasman knows why i have to mirror X as well) */
@@ -155,8 +156,6 @@ public class Visualization implements GLEventListener, KeyListener{
              gl.glTexCoord2d(0, 1); gl.glVertex3f(10.0f,  0.0f, 0.0f);
          gl.glEnd();
         
-                displayCameraPositionInfo(drawable);
- 
         texture.disable();
 
             
@@ -290,20 +289,5 @@ public class Visualization implements GLEventListener, KeyListener{
     }//end of loadTexture()
     
 
-    
-private void displayCameraPositionInfo(GLAutoDrawable drawable) {
-//        text.beginRendering(drawable.getWidth(), drawable.getHeight());
-//        text.setColor(new Color(255, 255, 255)); // White
-//
-//        text.draw("Camera x: " + form.format(camera_x) + " y: "
-//                + form.format(camera_y) + " z: " + form.format(camera_z)
-//                + " pan: " + form.format(angle), 10, 10);
 
-        System.out.print("Camera x: " + camera_x + " y: "
-                + camera_y + " z: " + camera_z
-                + " pan: " + angle + "\n");
-//        
-//        text.endRendering();
-//        text.flush();
-    }//displayCameraPositionInfo    
 }//end of class
