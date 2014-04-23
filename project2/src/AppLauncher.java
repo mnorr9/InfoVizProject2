@@ -24,7 +24,7 @@ public class AppLauncher {
         kb.buildKickerDatabase();
         proj.cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
         proj.cmbKicker2.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
-        //Visualization vis = new Visualization(proj.pnlPrimary);
+
     
         proj.setVisible(true);
     }

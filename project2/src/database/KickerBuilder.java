@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import database.Kicker;
+import java.util.Collections;
 
 public class KickerBuilder {
 
@@ -82,6 +83,8 @@ public class KickerBuilder {
         for (int i = 0; i < getNumOfKickers(); i++) {
             names.add(getKicker(i).getPlayerName());
         }
-        return names;
+        
+        Collections.sort(names); //sort the list
+	return names;	
     }
 }
