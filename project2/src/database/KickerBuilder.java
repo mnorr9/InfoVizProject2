@@ -18,7 +18,7 @@ public class KickerBuilder {
     }
 
     public void buildKickerDatabase() {
-        String csvFileToRead = "csvFiles/kicker_stats_2013.csv";
+        String csvFileToRead = "src/csvFiles/kicker_stats_2013.csv";
         BufferedReader br = null;
         String line = "";
         String splitBy = ",";
