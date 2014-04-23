@@ -67,15 +67,7 @@ public class Visualization implements GLEventListener, KeyListener{
         enableHardwareAcceleratedMipmaps = true;
         enableMipmapping = true;
 
-        camera_x = 0;
-        camera_y = 0;
-        camera_z = -16;
-        center_x = 0;
-        center_y = 0;
-        center_z = 2;
-        up_x = 0;
-        up_y = 1;
-        up_z = 0;
+        cameraInit();
  
         text = new TextRenderer(new Font("SansSerif", Font.BOLD, 12));
         form = new DecimalFormat("####0.00");
@@ -190,7 +182,7 @@ public class Visualization implements GLEventListener, KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -257,6 +249,11 @@ public class Visualization implements GLEventListener, KeyListener{
             center_x -= 0.1;
             //}
         }
+        
+       // Resets Camera's glu.gluLookAt parameters
+        if (keyString.equals("r")) {
+            cameraInit();
+        }
     }
 
     @Override
@@ -288,6 +285,16 @@ public class Visualization implements GLEventListener, KeyListener{
         }
     }//end of loadTexture()
     
-
+    private void cameraInit() {
+        camera_x = 0;
+        camera_y = 0;
+        camera_z = -16;
+        center_x = 0;
+        center_y = 0;
+        center_z = 2;
+        up_x = 0;
+        up_y = 1;
+        up_z = 0;        
+    }
 
 }//end of class
