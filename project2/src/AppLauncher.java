@@ -1,5 +1,6 @@
 
 import database.KickerBuilder;
+import javax.swing.WindowConstants;
 
 
 /*
@@ -27,6 +28,8 @@ public class AppLauncher {
 
     
         proj.setVisible(true);
+        proj.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
     }
     
 }
