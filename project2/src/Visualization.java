@@ -147,13 +147,28 @@ public class Visualization implements GLEventListener, KeyListener{
              gl.glTexCoord2d(0, 0); gl.glVertex3f(10.0f, 10.0f, 0.0f);
              gl.glTexCoord2d(0, 1); gl.glVertex3f(10.0f,  0.0f, 0.0f);
          gl.glEnd();
-        
+         
         texture.disable();
-
-            
+                drawArrow(gl);
         
     }//end of display()
 
+    
+    private void drawArrow(GL gl) {
+//        int index = gl.glGenLists(1);
+//        gl.glNewList(index, GL.GL_COMPILE);
+            // x, y, x
+            gl.glTranslatef(3.5f, 4f, -0.8f);
+            gl.glBegin(GL.GL_QUADS);
+                gl.glColor3f(1.0f, 1.0f, 1.0f); // white
+                gl.glVertex3f( 1.0f,  1.0f, -1.0f);
+                gl.glVertex3f( 1.0f,  0.9f, -1.0f);
+                gl.glVertex3f(-1.0f,  0.9f, -1.0f);
+                gl.glVertex3f(-1.0f,  1.0f, -1.0f);
+            gl.glEnd();
+//        gl.glEndList();
+    }//end of drawArrow()
+    
     @Override
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
       GL gl = drawable.getGL();  // get the OpenGL 2 graphics context
