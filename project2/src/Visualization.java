@@ -133,7 +133,7 @@ public class Visualization implements GLEventListener, KeyListener{
         gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
         gl.glPushAttrib(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
         gl.glEnable(gl.GL_TEXTURE_2D);
-        
+        gl.glPushMatrix();
         gl.glTranslatef(-5f, -5f, -4f); //Centers the football field graph.
 
         
@@ -149,16 +149,17 @@ public class Visualization implements GLEventListener, KeyListener{
          gl.glEnd();
          
         texture.disable();
-                drawArrow(gl);
+        drawWhiteArrow(gl);
+         gl.glPopMatrix();       
+        //drawRedArrow(gl);
         
     }//end of display()
 
     
-    private void drawArrow(GL gl) {
-//        int index = gl.glGenLists(1);
-//        gl.glNewList(index, GL.GL_COMPILE);
-            // x, y, x
-            gl.glTranslatef(3.5f, 4f, -0.8f);
+    private void drawWhiteArrow(GL gl) {
+
+        gl.glPushMatrix();
+            gl.glTranslatef(3.8f, 4f, -0.8f);
             gl.glBegin(GL.GL_QUADS);
                 gl.glColor3f(1.0f, 1.0f, 1.0f); // white
                 gl.glVertex3f( 1.0f,  1.0f, -1.0f);
@@ -166,7 +167,22 @@ public class Visualization implements GLEventListener, KeyListener{
                 gl.glVertex3f(-1.0f,  0.9f, -1.0f);
                 gl.glVertex3f(-1.0f,  1.0f, -1.0f);
             gl.glEnd();
-//        gl.glEndList();
+        gl.glPopMatrix();
+
+    }//end of drawArrow()
+    
+    private void drawRedArrow(GL gl) {
+        gl.glPushMatrix();
+            gl.glTranslatef(3.8f, 1f, -0.8f);
+            gl.glBegin(GL.GL_QUADS);
+                gl.glColor3f(0.0f, 1.0f, 1.0f); // white
+                gl.glVertex3f( 1.0f,  1.0f, -1.0f);
+                gl.glVertex3f( 1.0f,  0.9f, -1.0f);
+                gl.glVertex3f(-1.0f,  0.9f, -1.0f);
+                gl.glVertex3f(-1.0f,  1.0f, -1.0f);
+            gl.glEnd();
+         gl.glPopMatrix();           
+
     }//end of drawArrow()
     
     @Override
