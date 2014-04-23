@@ -1,5 +1,7 @@
 package project2;
 
+import database.KickerBuilder;
+
 
 
 
@@ -24,6 +26,10 @@ public class AppLauncher {
         scene.attachToPanel(proj.pnlPrimary);
         
         //Visualization vis = new Visualization(proj.pnlPrimary);
+        KickerBuilder kb = new KickerBuilder();
+		kb.buildKickerDatabase();
+
+		proj.cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
     
         proj.setVisible(true);
     }

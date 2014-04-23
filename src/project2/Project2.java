@@ -54,15 +54,11 @@ public class Project2 extends javax.swing.JFrame {
 
         jLabel1.setText("Kicker#1:");
 
-        // build kicker List
-        KickerBuilder kb = new KickerBuilder();
-		kb.buildKickerDatabase();
-
-		cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
+        cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel2.setText("Kicker#2:");
 
-        cmbKicker2.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
+        cmbKicker2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout pnlSecondaryLayout = new javax.swing.GroupLayout(pnlSecondary);
         pnlSecondary.setLayout(pnlSecondaryLayout);
