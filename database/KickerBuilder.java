@@ -98,5 +98,13 @@ public class KickerBuilder
   {
     return kickerList.size();
   }
+  
+  public ArrayList<String> getNameList() {
+	  ArrayList<String> names = new ArrayList<String>();
+	  for(int i=0; i<getNumOfKickers(); i++) {
+		  names.add(getKicker(i).getPlayerName());
+	  }
+	  return names;
+  }
 
 }

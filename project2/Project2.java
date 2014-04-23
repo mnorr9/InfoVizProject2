@@ -1,5 +1,7 @@
 package project2;
 
+import database.KickerBuilder;
+
 
 
 
@@ -52,11 +54,15 @@ public class Project2 extends javax.swing.JFrame {
 
         jLabel1.setText("Kicker#1:");
 
-        cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        // build kicker List
+        KickerBuilder kb = new KickerBuilder();
+		kb.buildKickerDatabase();
+
+		cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
 
         jLabel2.setText("Kicker#2:");
 
-        cmbKicker2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbKicker2.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
 
         javax.swing.GroupLayout pnlSecondaryLayout = new javax.swing.GroupLayout(pnlSecondary);
         pnlSecondary.setLayout(pnlSecondaryLayout);
