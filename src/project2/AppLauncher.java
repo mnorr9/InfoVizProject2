@@ -1,6 +1,7 @@
 package project2;
 
 import database.KickerBuilder;
+import javax.swing.WindowConstants;
 
 
 
@@ -26,12 +27,14 @@ public class AppLauncher {
         scene.attachToPanel(proj.pnlPrimary);
         
         //Visualization vis = new Visualization(proj.pnlPrimary);
-        KickerBuilder kb = new KickerBuilder();
-		kb.buildKickerDatabase();
+           KickerBuilder kb = new KickerBuilder();
+           kb.buildKickerDatabase();
+           proj.cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
+           proj.cmbKicker2.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
 
-		proj.cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
-    
-        proj.setVisible(true);
+
+           proj.setVisible(true);
+           proj.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     
 }
