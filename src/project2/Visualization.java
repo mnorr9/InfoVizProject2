@@ -171,7 +171,7 @@ left but texture origin is at upper left => it has to be mirrored
     
     private void drawRedArrow(GL gl) {
         gl.glPushMatrix();
-            gl.glTranslatef(-0.8f, 0f, -4.8f);
+            gl.glTranslatef(-0.8f, 0.0f, -4.8f);
             gl.glBegin(GL.GL_QUADS);
                 gl.glColor3f(1.0f, 0.0f, 0.0f); // white
                 gl.glVertex3f( 1.0f, 1.0f, -1.0f);
