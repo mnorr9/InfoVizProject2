@@ -22,7 +22,7 @@ public class AppLauncher {
     
        public static void main(String[] args) {
         @SuppressWarnings("unused")
-        Project2 proj = new Project2();
+        MainForm proj = new MainForm();
         Visualization scene = new Visualization();
         scene.attachToPanel(proj.pnlPrimary);
         
