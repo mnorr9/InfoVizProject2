@@ -1,7 +1,4 @@
 package project2;
-
-
-
 import com.sun.opengl.util.Animator;
 import com.sun.opengl.util.FPSAnimator;
 import com.sun.opengl.util.j2d.TextRenderer;
@@ -26,15 +23,15 @@ import javax.media.opengl.glu.GLU;
 import javax.swing.JPanel;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 
 /**
- *
- * @author nasser
- */
+*
+* @author nasser
+*/
 
 
 
@@ -67,20 +64,12 @@ public class Visualization implements GLEventListener, KeyListener{
         enableHardwareAcceleratedMipmaps = true;
         enableMipmapping = true;
 
-        camera_x = 0;
-        camera_y = 0;
-        camera_z = -16;
-        center_x = 0;
-        center_y = 0;
-        center_z = 2;
-        up_x = 0;
-        up_y = 1;
-        up_z = 0;
+        cameraInit();
  
         text = new TextRenderer(new Font("SansSerif", Font.BOLD, 12));
         form = new DecimalFormat("####0.00");
 
-        // Construct an FPS animator, which drives drawable's display() 
+        // Construct an FPS animator, which drives drawable's display()
         // at the specified frames per second
         FPSAnimator animator = new FPSAnimator(canvas, 60);
         
@@ -95,23 +84,23 @@ public class Visualization implements GLEventListener, KeyListener{
     @Override
     public void init(GLAutoDrawable drawable) {
       
-      // get the OpenGL graphics context  
-      GL gl = drawable.getGL();      
+      // get the OpenGL graphics context
+      GL gl = drawable.getGL();
       
       // get GL Utilities
-      glu = new GLU();               
+      glu = new GLU();
       
       // set background (clear) color
-      gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f); 
+      gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
       
       // set clear depth value to farthest
-      gl.glClearDepth(1.0f);                
+      gl.glClearDepth(1.0f);
       
       // enables depth testing
-      gl.glEnable(gl.GL_DEPTH_TEST);        
+      gl.glEnable(gl.GL_DEPTH_TEST);
       
       // the type of depth test to do
-      gl.glDepthFunc(gl.GL_LEQUAL);         
+      gl.glDepthFunc(gl.GL_LEQUAL);
       
       // best perspective correction
       gl.glHint(gl.GL_PERSPECTIVE_CORRECTION_HINT, gl.GL_NICEST);
@@ -125,13 +114,13 @@ public class Visualization implements GLEventListener, KeyListener{
 
     @Override
     public void display(GLAutoDrawable drawable) {
-        GL gl = drawable.getGL();  // get the OpenGL 2 graphics context
+        GL gl = drawable.getGL(); // get the OpenGL 2 graphics context
                      
         gl.glMatrixMode(gl.GL_PROJECTION);
         gl.glLoadIdentity();
         /* fov, aspect, near, far */
         glu.gluPerspective(45, 1, 1, 100);
-        glu.gluLookAt(  camera_x, camera_y, camera_z, /* eye */
+        glu.gluLookAt( camera_x, camera_y, camera_z, /* eye */
                         center_x, center_y, center_z, /* center */
                         up_x, up_y, up_z); /* up */
 
@@ -141,39 +130,71 @@ public class Visualization implements GLEventListener, KeyListener{
         gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
         gl.glPushAttrib(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
         gl.glEnable(gl.GL_TEXTURE_2D);
-        
+        gl.glPushMatrix();
         gl.glTranslatef(-5f, -5f, -4f); //Centers the football field graph.
 
         
-         /* create a square on the XY note that OpenGL origin is at the lower 
-            left but texture origin is at upper left => it has to be mirrored
-            (gasman knows why i have to mirror X as well) */
+         /* create a square on the XY note that OpenGL origin is at the lower
+left but texture origin is at upper left => it has to be mirrored
+(gasman knows why i have to mirror X as well) */
          gl.glBegin(gl.GL_QUADS);
              gl.glRotatef(-90, 1, 0, 0); // Rotate World!
-             gl.glTexCoord2d(1, 1); gl.glVertex3f( 0.0f,  0.0f, 0.0f);
+             gl.glTexCoord2d(1, 1); gl.glVertex3f( 0.0f, 0.0f, 0.0f);
              gl.glTexCoord2d(1, 0); gl.glVertex3f( 0.0f, 10.0f, 0.0f);
              gl.glTexCoord2d(0, 0); gl.glVertex3f(10.0f, 10.0f, 0.0f);
-             gl.glTexCoord2d(0, 1); gl.glVertex3f(10.0f,  0.0f, 0.0f);
+             gl.glTexCoord2d(0, 1); gl.glVertex3f(10.0f, 0.0f, 0.0f);
          gl.glEnd();
-        
+         
         texture.disable();
-
-            
+        drawBlueArrow(gl);
+         gl.glPopMatrix();
+        drawRedArrow(gl);
+        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
         
     }//end of display()
 
+    
+    private void drawBlueArrow(GL gl) {
+
+        gl.glPushMatrix();
+            gl.glTranslatef(3.8f, 4f, -0.8f);
+            gl.glBegin(GL.GL_QUADS);
+                gl.glColor3f(0.0f, 0.0f, 1.0f); // white
+                gl.glVertex3f( 1.0f, 1.0f, -1.0f);
+                gl.glVertex3f( 1.0f, 0.9f, -1.0f);
+                gl.glVertex3f(-1.0f, 0.9f, -1.0f);
+                gl.glVertex3f(-1.0f, 1.0f, -1.0f);
+            gl.glEnd();
+        gl.glPopMatrix();
+
+    }//end of drawArrow()
+    
+    private void drawRedArrow(GL gl) {
+        gl.glPushMatrix();
+            gl.glTranslatef(-0.8f, 0f, -4.8f);
+            gl.glBegin(GL.GL_QUADS);
+                gl.glColor3f(1.0f, 0.0f, 0.0f); // white
+                gl.glVertex3f( 1.0f, 1.0f, -1.0f);
+                gl.glVertex3f( 1.0f, 0.9f, -1.0f);
+                gl.glVertex3f(-1.0f, 0.9f, -1.0f);
+                gl.glVertex3f(-1.0f, 1.0f, -1.0f);
+            gl.glEnd();
+         gl.glPopMatrix();
+
+    }//end of drawArrow()
+    
     @Override
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
-      GL gl = drawable.getGL();  // get the OpenGL 2 graphics context
+      GL gl = drawable.getGL(); // get the OpenGL 2 graphics context
  
-      if (height == 0) height = 1;   // prevent divide by zero
+      if (height == 0) height = 1; // prevent divide by zero
       float aspect = (float)width / height;
  
       // Set the view port (display area) to cover the entire window
       gl.glViewport(0, 0, width, height);
  
       // Setup perspective projection, with aspect ratio matches viewport
-      gl.glMatrixMode(gl.GL_PROJECTION);  // choose projection matrix
+      gl.glMatrixMode(gl.GL_PROJECTION); // choose projection matrix
       gl.glLoadIdentity(); // reset projection matrix
       glu.gluPerspective(45.0, aspect, 0.1, 100.0); // fovy, aspect, zNear, zFar
  
@@ -190,7 +211,7 @@ public class Visualization implements GLEventListener, KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+// throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -204,25 +225,25 @@ public class Visualization implements GLEventListener, KeyListener{
             camera_y += 0.5;
         } else if (ke.getKeyCode() == KeyEvent.VK_UP) {
             // Moves FORWARD on xz plane
-            //    if (camera_z < sceneBoundary_z) {
+            // if (camera_z < sceneBoundary_z) {
             camera_z += 0.1;
             center_z += 0.1;
-            //    }
+            // }
         }
 
         if ((ke.getKeyCode() == KeyEvent.VK_DOWN)
                 && ((ke.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             // Moves DOWNWARD on xz plane
-//            if (camera_y >= 0.5) // Do not allow to go beneath 'x' plane
-//            {
+// if (camera_y >= 0.5) // Do not allow to go beneath 'x' plane
+// {
                 camera_y -= 0.5;
-//            }
+// }
         } else if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
             // Moves BACKWARDS on xz plane
-            //    if (camera_z > (sceneBoundary_z * -1)) {
+            // if (camera_z > (sceneBoundary_z * -1)) {
             camera_z -= 0.1;
             center_z -= 0.1;
-            //    }
+            // }
         }
 
         if ((ke.getKeyCode() == KeyEvent.VK_LEFT)
@@ -257,6 +278,11 @@ public class Visualization implements GLEventListener, KeyListener{
             center_x -= 0.1;
             //}
         }
+        
+       // Resets Camera's glu.gluLookAt parameters
+        if (keyString.equals("r")) {
+            cameraInit();
+        }
     }
 
     @Override
@@ -267,7 +293,7 @@ public class Visualization implements GLEventListener, KeyListener{
     void attachToPanel(JPanel pnlPrimary) {
         pnlPrimary.add(canvas);
         anim = new Animator(canvas);
-        anim.start();        
+        anim.start();
     }
 
     
@@ -288,6 +314,18 @@ public class Visualization implements GLEventListener, KeyListener{
         }
     }//end of loadTexture()
     
-
+    private void cameraInit() {
+        camera_x = 0;
+        camera_y = 0;
+        camera_z = -16;
+        center_x = 0;
+        center_y = 0;
+        center_z = 2;
+        up_x = 0;
+        up_y = 1;
+        up_z = 0;
+    }
 
 }//end of class
+
+
