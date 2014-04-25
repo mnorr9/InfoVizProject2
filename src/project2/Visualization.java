@@ -1,4 +1,4 @@
-package project2;
+
 import com.sun.opengl.util.Animator;
 import com.sun.opengl.util.FPSAnimator;
 import com.sun.opengl.util.texture.Texture;
@@ -48,12 +48,16 @@ public class Visualization implements GLEventListener, KeyListener{
     private float up_y;
     private float up_z;
     private float angle; // angle of rotation for the camera direction
-
+    private float x_position1;
+    private float x_position2;
 
     public Visualization() {
 
         cameraInit();
 
+        x_position1 = 0f;
+        x_position2 = 0f;
+        
         // Construct an FPS animator, which drives drawable's display()
         // at the specified frames per second
         FPSAnimator animator = new FPSAnimator(canvas, 60);
@@ -150,12 +154,12 @@ public class Visualization implements GLEventListener, KeyListener{
      */
     private void drawRedArrow(GL gl) {
         gl.glPushMatrix();
-            gl.glTranslatef(-0.25f, 1.0f, 0.0f);
+            gl.glTranslatef(-4.15f, 1.0f, 0.0f);
             gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
             gl.glLineWidth(6.0f);
-            gl.glBegin(GL.GL_LINES);
+            gl.glBegin(GL.GL_LINES);            
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
-                gl.glVertex3f(-0.4f, 0.0f, 0.0f);
+                gl.glVertex3f(x_position1, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
 
@@ -168,17 +172,26 @@ public class Visualization implements GLEventListener, KeyListener{
      */
     private void drawBlueArrow(GL gl) {
         gl.glPushMatrix();
-            gl.glTranslatef(-0.25f, 0.0f, 0.0f);
+            gl.glTranslatef(-4.15f, 0.0f, 0.0f);
             gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
             gl.glLineWidth(6.0f);
             gl.glBegin(GL.GL_LINES);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
-                gl.glVertex3f(-4.0f, 0.0f, 0.0f);
+                gl.glVertex3f(x_position2, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
 
     }//end of drawBlueArrow()
+
     
+    public void setPosition1(float yards) {
+        x_position1 = (float) ((0.39f * yards) / 5.0f);
+        System.out.println("Yards1 --> " + x_position1);
+    }  
+    public void setPosition2(float yards) {
+        x_position2 = (float) ((0.39f * yards) / 5.0f);
+        System.out.println("Yards2 --> " + x_position1);
+    }     
     
     @Override
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -295,17 +308,10 @@ public class Visualization implements GLEventListener, KeyListener{
 
     
     private void loadTexture(String fileName, GL gl) {
-//        gl.glEnable(GL.GL_TEXTURE_2D);
-//        gl.glEnable(GL.GL_BLEND);
-
         img = null;
         try {
             img = ImageIO.read(new File(fileName));
             texture = TextureIO.newTexture(img, true);
-
-            // when texture area is large, bilinear filter the first mipmap
-//            gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER, gl.GL_LINEAR);
-
         } catch (Exception ex) {
             Logger.getLogger(Visualization.class.getName()).log(Level.SEVERE, null, ex);
         }

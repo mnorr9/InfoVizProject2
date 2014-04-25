@@ -1,11 +1,6 @@
-package project2;
 
 import database.KickerBuilder;
 import javax.swing.WindowConstants;
-
-
-
-
 
 
 /*
@@ -20,21 +15,26 @@ import javax.swing.WindowConstants;
  */
 public class AppLauncher {
     
-       public static void main(String[] args) {
+    public static void main(String[] args) {
         @SuppressWarnings("unused")
         MainForm proj = new MainForm();
         Visualization scene = new Visualization();
         scene.attachToPanel(proj.pnlPrimary);
+
+        KickerBuilder kb = new KickerBuilder();
+        kb.buildKickerDatabase();
+        proj.cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
+        proj.cmbKicker2.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
+
+        Kicker1Action kicker1 = new Kicker1Action(scene, kb);
+        proj.cmbKicker1.addItemListener(kicker1);
+
+        Kicker2Action kicker2 = new Kicker2Action(scene, kb);
+        proj.cmbKicker2.addItemListener(kicker2);
         
-        //Visualization vis = new Visualization(proj.pnlPrimary);
-           KickerBuilder kb = new KickerBuilder();
-           kb.buildKickerDatabase();
-           proj.cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
-           proj.cmbKicker2.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
-
-
-           proj.setVisible(true);
-           proj.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        proj.setVisible(true);
+        proj.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
     }
     
 }
