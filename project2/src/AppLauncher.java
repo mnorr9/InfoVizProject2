@@ -26,7 +26,12 @@ public class AppLauncher {
         proj.cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
         proj.cmbKicker2.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
 
-    
+        Kicker1Action kicker1 = new Kicker1Action(scene, kb);
+        proj.cmbKicker1.addItemListener(kicker1);
+
+        Kicker2Action kicker2 = new Kicker2Action(scene, kb);
+        proj.cmbKicker2.addItemListener(kicker2);
+        
         proj.setVisible(true);
         proj.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
