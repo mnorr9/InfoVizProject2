@@ -48,15 +48,15 @@ public class Visualization implements GLEventListener, KeyListener{
     private float up_y;
     private float up_z;
     private float angle; // angle of rotation for the camera direction
-    private float yards1;
-    private float yards2;
+    private float x_position1;
+    private float x_position2;
 
     public Visualization() {
 
         cameraInit();
 
-        yards1 = 0f;
-        yards2 = 0f;
+        x_position1 = 0f;
+        x_position2 = 0f;
         
         // Construct an FPS animator, which drives drawable's display()
         // at the specified frames per second
@@ -159,7 +159,7 @@ public class Visualization implements GLEventListener, KeyListener{
             gl.glLineWidth(6.0f);
             gl.glBegin(GL.GL_LINES);            
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
-                gl.glVertex3f(yards1, 0.0f, 0.0f);
+                gl.glVertex3f(x_position1, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
 
@@ -177,20 +177,20 @@ public class Visualization implements GLEventListener, KeyListener{
             gl.glLineWidth(6.0f);
             gl.glBegin(GL.GL_LINES);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
-                gl.glVertex3f(yards2, 0.0f, 0.0f);
+                gl.glVertex3f(x_position2, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
 
     }//end of drawBlueArrow()
 
     
-    public void setLongestKick1(float yards) {
-        yards1 = (float) ((0.39f * yards) / 5.0f);
-        System.out.println("Yards1 --> " + yards1);
+    public void setPosition1(float yards) {
+        x_position1 = (float) ((0.39f * yards) / 5.0f);
+        System.out.println("Yards1 --> " + x_position1);
     }  
-    public void setLongestKick2(float yards) {
-        yards2 = (float) ((0.39f * yards) / 5.0f);
-        System.out.println("Yards2 --> " + yards1);
+    public void setPosition2(float yards) {
+        x_position2 = (float) ((0.39f * yards) / 5.0f);
+        System.out.println("Yards2 --> " + x_position1);
     }     
     
     @Override

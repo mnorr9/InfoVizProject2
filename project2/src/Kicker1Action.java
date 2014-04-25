@@ -27,7 +27,7 @@ public class Kicker1Action implements ItemListener{
             String name = event.getItem().toString() ;
             double longestFieldGoal = kb.getKicker(name).getLongestFieldGoal();
             System.out.println("Kicker: " + name + ";  Longet kick: " + longestFieldGoal);
-            scene.setLongestKick1((float) longestFieldGoal);
+            scene.setPosition1((float) longestFieldGoal);
         }
     }   
 }
