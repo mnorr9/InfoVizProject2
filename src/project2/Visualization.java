@@ -1,16 +1,12 @@
 package project2;
 import com.sun.opengl.util.Animator;
 import com.sun.opengl.util.FPSAnimator;
-import com.sun.opengl.util.j2d.TextRenderer;
 import com.sun.opengl.util.texture.Texture;
 import com.sun.opengl.util.texture.TextureIO;
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -40,8 +36,6 @@ public class Visualization implements GLEventListener, KeyListener{
     private GLCanvas canvas;
     private GLU glu;
     private Animator anim;
-    private boolean enableHardwareAcceleratedMipmaps;
-    private boolean enableMipmapping;
     private BufferedImage img;
     private Texture texture;
     private float camera_x;
@@ -54,32 +48,21 @@ public class Visualization implements GLEventListener, KeyListener{
     private float up_y;
     private float up_z;
     private float angle; // angle of rotation for the camera direction
-    private float angle2;
-    private JPanel pnlPrimary;
-    private TextRenderer text;
-    private DecimalFormat form;
+
 
     public Visualization() {
 
-        enableHardwareAcceleratedMipmaps = true;
-        enableMipmapping = true;
-
         cameraInit();
- 
-        text = new TextRenderer(new Font("SansSerif", Font.BOLD, 12));
-        form = new DecimalFormat("####0.00");
 
         // Construct an FPS animator, which drives drawable's display()
         // at the specified frames per second
         FPSAnimator animator = new FPSAnimator(canvas, 60);
-        
+
         GLCapabilities caps = new GLCapabilities();
         canvas = new GLCanvas(caps);
         canvas.addGLEventListener(this);
         canvas.addKeyListener(this);
-        
-
-    }
+    }//end of constructor
 
     @Override
     public void init(GLAutoDrawable drawable) {
@@ -115,73 +98,87 @@ public class Visualization implements GLEventListener, KeyListener{
     @Override
     public void display(GLAutoDrawable drawable) {
         GL gl = drawable.getGL(); // get the OpenGL 2 graphics context
-                     
+
         gl.glMatrixMode(gl.GL_PROJECTION);
         gl.glLoadIdentity();
-        /* fov, aspect, near, far */
-        glu.gluPerspective(45, 1, 1, 100);
-        glu.gluLookAt( camera_x, camera_y, camera_z, /* eye */
-                        center_x, center_y, center_z, /* center */
-                        up_x, up_y, up_z); /* up */
+
+        /* Perspective. (fov, aspect, near, far)
+         */
+        glu.gluPerspective(45, 1, 1, 1000);
+
+        glu.gluLookAt(
+                camera_x, camera_y, camera_z, /* eye */
+                center_x, center_y, center_z, /* center */
+                up_x, up_y, up_z); /* up */
 
         gl.glMatrixMode(gl.GL_MODELVIEW);
         gl.glLoadIdentity();
-
         gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
-        gl.glPushAttrib(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
-        gl.glEnable(gl.GL_TEXTURE_2D);
-        gl.glPushMatrix();
-        gl.glTranslatef(-5f, -5f, -4f); //Centers the football field graph.
 
-        
-         /* create a square on the XY note that OpenGL origin is at the lower
-left but texture origin is at upper left => it has to be mirrored
-(gasman knows why i have to mirror X as well) */
-         gl.glBegin(gl.GL_QUADS);
-             gl.glRotatef(-90, 1, 0, 0); // Rotate World!
-             gl.glTexCoord2d(1, 1); gl.glVertex3f( 0.0f, 0.0f, 0.0f);
-             gl.glTexCoord2d(1, 0); gl.glVertex3f( 0.0f, 10.0f, 0.0f);
-             gl.glTexCoord2d(0, 0); gl.glVertex3f(10.0f, 10.0f, 0.0f);
-             gl.glTexCoord2d(0, 1); gl.glVertex3f(10.0f, 0.0f, 0.0f);
-         gl.glEnd();
-         
-        texture.disable();
-        drawBlueArrow(gl);
-         gl.glPopMatrix();
-        drawRedArrow(gl);
-        gl.glColor3f(1.0f, 1.0f, 1.0f); // white
-        
+        gl.glPushMatrix();
+            gl.glColor3f(1.0f, 1.0f, 1.0f); // white
+            drawField(gl);
+            drawRedArrow(gl);
+            drawBlueArrow(gl);
+        gl.glPopMatrix();
+
+           
     }//end of display()
 
-    
-    private void drawBlueArrow(GL gl) {
-
+    private void drawField(GL gl){
         gl.glPushMatrix();
-            gl.glTranslatef(3.8f, 4f, -0.8f);
-            gl.glBegin(GL.GL_QUADS);
-                gl.glColor3f(0.0f, 0.0f, 1.0f); // white
-                gl.glVertex3f( 1.0f, 1.0f, -1.0f);
-                gl.glVertex3f( 1.0f, 0.9f, -1.0f);
-                gl.glVertex3f(-1.0f, 0.9f, -1.0f);
-                gl.glVertex3f(-1.0f, 1.0f, -1.0f);
+            gl.glEnable(gl.GL_TEXTURE_2D);
+            gl.glEnable(GL.GL_BLEND);
+            gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER, gl.GL_LINEAR);
+            gl.glTranslatef(-5f, -5f, 0.0f); //Centers the football field graph.
+            texture.enable();
+            texture.bind();
+            gl.glBegin(gl.GL_QUADS);
+                 gl.glTexCoord2d(1, 1); gl.glVertex3f( 0.0f,  0.0f, 0.0f);
+                 gl.glTexCoord2d(1, 0); gl.glVertex3f( 0.0f, 10.0f, 0.0f);
+                 gl.glTexCoord2d(0, 0); gl.glVertex3f(10.0f, 10.0f, 0.0f);
+                 gl.glTexCoord2d(0, 1); gl.glVertex3f(10.0f,  0.0f, 0.0f);
+             gl.glEnd();
+             texture.disable();             
+        gl.glPopMatrix();
+    }//end of drawField()
+
+    /**
+     * This function creates the bar that represents the longest kick by
+     * kicker#1 
+     * @param gl 
+     */
+    private void drawRedArrow(GL gl) {
+        gl.glPushMatrix();
+            gl.glTranslatef(-0.25f, 1.0f, 0.0f);
+            gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
+            gl.glLineWidth(6.0f);
+            gl.glBegin(GL.GL_LINES);
+                gl.glVertex3f(0.0f, 0.0f, 0.0f);
+                gl.glVertex3f(-0.4f, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
 
-    }//end of drawArrow()
+    }//end of drawRedArrow()
     
-    private void drawRedArrow(GL gl) {
+    /**
+     * This function creates the bar that represents the longest kick by
+     * kicker#2 
+     * @param gl 
+     */
+    private void drawBlueArrow(GL gl) {
         gl.glPushMatrix();
-            gl.glTranslatef(-0.8f, 0.0f, -4.8f);
-            gl.glBegin(GL.GL_QUADS);
-                gl.glColor3f(1.0f, 0.0f, 0.0f); // white
-                gl.glVertex3f( 1.0f, 1.0f, -1.0f);
-                gl.glVertex3f( 1.0f, 0.9f, -1.0f);
-                gl.glVertex3f(-1.0f, 0.9f, -1.0f);
-                gl.glVertex3f(-1.0f, 1.0f, -1.0f);
+            gl.glTranslatef(-0.25f, 0.0f, 0.0f);
+            gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
+            gl.glLineWidth(6.0f);
+            gl.glBegin(GL.GL_LINES);
+                gl.glVertex3f(0.0f, 0.0f, 0.0f);
+                gl.glVertex3f(-4.0f, 0.0f, 0.0f);
             gl.glEnd();
-         gl.glPopMatrix();
+        gl.glPopMatrix();
 
-    }//end of drawArrow()
+    }//end of drawBlueArrow()
+    
     
     @Override
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -298,8 +295,8 @@ left but texture origin is at upper left => it has to be mirrored
 
     
     private void loadTexture(String fileName, GL gl) {
-        gl.glEnable(GL.GL_TEXTURE_2D);
-        gl.glEnable(GL.GL_BLEND);
+//        gl.glEnable(GL.GL_TEXTURE_2D);
+//        gl.glEnable(GL.GL_BLEND);
 
         img = null;
         try {
@@ -307,7 +304,7 @@ left but texture origin is at upper left => it has to be mirrored
             texture = TextureIO.newTexture(img, true);
 
             // when texture area is large, bilinear filter the first mipmap
-            gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER, gl.GL_LINEAR);
+//            gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER, gl.GL_LINEAR);
 
         } catch (Exception ex) {
             Logger.getLogger(Visualization.class.getName()).log(Level.SEVERE, null, ex);
@@ -317,13 +314,14 @@ left but texture origin is at upper left => it has to be mirrored
     private void cameraInit() {
         camera_x = 0;
         camera_y = 0;
-        camera_z = -16;
+        camera_z = -12.2f;
         center_x = 0;
         center_y = 0;
-        center_z = 2;
+        center_z = 0;
         up_x = 0;
         up_y = 1;
         up_z = 0;
+        
     }
 
 }//end of class
