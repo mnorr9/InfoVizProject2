@@ -1,7 +1,10 @@
+package project2;
 
-import database.KickerBuilder;
+
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+
+import database.KickerBuilder;
 
 /*
  * To change this template, choose Tools | Templates

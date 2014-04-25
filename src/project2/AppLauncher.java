@@ -1,6 +1,9 @@
+package project2;
+
+
+import javax.swing.WindowConstants;
 
 import database.KickerBuilder;
-import javax.swing.WindowConstants;
 
 
 /*
@@ -16,7 +19,6 @@ import javax.swing.WindowConstants;
 public class AppLauncher {
     
     public static void main(String[] args) {
-        @SuppressWarnings("unused")
         MainForm proj = new MainForm();
         Visualization scene = new Visualization();
         scene.attachToPanel(proj.pnlPrimary);
