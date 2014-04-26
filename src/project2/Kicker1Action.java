@@ -18,10 +18,12 @@ import database.KickerBuilder;
 public class Kicker1Action implements ItemListener{
     private final Visualization scene;
     private final KickerBuilder kb;
+    private final MainForm form;
 
-    Kicker1Action(Visualization scene, KickerBuilder kb) {
+    Kicker1Action(Visualization scene, KickerBuilder kb, MainForm form) {
         this.scene = scene;
         this.kb = kb;
+        this.form = form;
     }
 
     @Override
@@ -29,8 +31,8 @@ public class Kicker1Action implements ItemListener{
         if (event.getStateChange() == ItemEvent.SELECTED) {
             String name = event.getItem().toString() ;
             double longestFieldGoal = kb.getKicker(name).getLongestFieldGoal();
-            System.out.println("Kicker: " + name + ";  Longet kick: " + longestFieldGoal);
             scene.setPosition1((float) longestFieldGoal);
+            form.txtTeam1.setText(kb.getKicker(name).getTeamName());
         }
     }   
 }
