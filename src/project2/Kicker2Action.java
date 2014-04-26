@@ -31,7 +31,7 @@ public class Kicker2Action implements ItemListener{
         if (event.getStateChange() == ItemEvent.SELECTED) {
             String name = event.getItem().toString() ;
             double longestFieldGoal = kb.getKicker(name).getLongestFieldGoal();
-            System.out.println("Kicker2: " + name + ";  Longet kick: " + longestFieldGoal);
+            System.out.println("Blue Kicker2: " + name + ";  Longest kick: " + longestFieldGoal);
             scene.setPosition2((float) longestFieldGoal);
             form.txtTeam2.setText(kb.getKicker(name).getTeamName());
         }

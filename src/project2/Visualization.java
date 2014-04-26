@@ -158,7 +158,7 @@ public class Visualization implements GLEventListener, KeyListener{
      */
     private void drawRedArrow(GL gl) {
         gl.glPushMatrix();
-            gl.glTranslatef(-4.15f, 1.0f, 0.0f);
+            gl.glTranslatef(-4.965f, 1.1f, 0.0f);
             gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
             gl.glLineWidth(6.0f);
             gl.glBegin(GL.GL_LINES);            
@@ -176,7 +176,7 @@ public class Visualization implements GLEventListener, KeyListener{
      */
     private void drawBlueArrow(GL gl) {
         gl.glPushMatrix();
-            gl.glTranslatef(-4.15f, 0.0f, 0.0f);
+            gl.glTranslatef(-4.965f, -0.2f, 0.0f);
             gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
             gl.glLineWidth(6.0f);
             gl.glBegin(GL.GL_LINES);
