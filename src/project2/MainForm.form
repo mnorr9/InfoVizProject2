@@ -208,6 +208,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtGamesPlayed1">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="toolTipText" type="java.lang.String" value="Field Goals Attempts"/>
                   </Properties>
                   <AuxValues>
@@ -310,12 +311,13 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="FGA"/>
+                    <Property name="text" type="java.lang.String" value="FGA:"/>
                     <Property name="toolTipText" type="java.lang.String" value="Field Goals Attempts"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtGamesPlayed2">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="toolTipText" type="java.lang.String" value="Field Goals Attempts"/>
                   </Properties>
                   <AuxValues>

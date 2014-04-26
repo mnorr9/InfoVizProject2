@@ -75,6 +75,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel5.setText("FGA:");
         jLabel5.setToolTipText("Field Goals Attempts");
 
+        txtGamesPlayed1.setEditable(false);
         txtGamesPlayed1.setToolTipText("Field Goals Attempts");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -125,9 +126,10 @@ public class MainForm extends javax.swing.JFrame {
 
         txtTeam2.setEditable(false);
 
-        jLabel6.setText("FGA");
+        jLabel6.setText("FGA:");
         jLabel6.setToolTipText("Field Goals Attempts");
 
+        txtGamesPlayed2.setEditable(false);
         txtGamesPlayed2.setToolTipText("Field Goals Attempts");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
