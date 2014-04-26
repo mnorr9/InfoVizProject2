@@ -42,11 +42,15 @@ public class MainForm extends javax.swing.JFrame {
         cmbKicker1 = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         txtTeam1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtGamesPlayed1 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         cmbKicker2 = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         txtTeam2 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtGamesPlayed2 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         pnlPrimary = new javax.swing.JPanel();
         mnbMain = new javax.swing.JMenuBar();
@@ -68,6 +72,11 @@ public class MainForm extends javax.swing.JFrame {
 
         txtTeam1.setEditable(false);
 
+        jLabel5.setText("FGA:");
+        jLabel5.setToolTipText("Field Goals Attempts");
+
+        txtGamesPlayed1.setToolTipText("Field Goals Attempts");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -80,9 +89,13 @@ public class MainForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbKicker1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTeam1)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtGamesPlayed1)
+                            .addComponent(txtTeam1))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -95,7 +108,11 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 62, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtGamesPlayed1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 19, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Blue"));
@@ -107,6 +124,11 @@ public class MainForm extends javax.swing.JFrame {
         jLabel4.setText("Team:");
 
         txtTeam2.setEditable(false);
+
+        jLabel6.setText("FGA");
+        jLabel6.setToolTipText("Field Goals Attempts");
+
+        txtGamesPlayed2.setToolTipText("Field Goals Attempts");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -121,9 +143,13 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(cmbKicker2, 0, 98, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTeam2))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtGamesPlayed2)
+                            .addComponent(txtTeam2)))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +162,11 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtTeam2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtGamesPlayed2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlSecondaryLayout = new javax.swing.GroupLayout(pnlSecondary);
@@ -155,9 +185,9 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(pnlSecondaryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(61, 61, 61)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         sppMainSplit.setLeftComponent(pnlSecondary);
@@ -188,7 +218,7 @@ public class MainForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sppMainSplit, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+                .addComponent(sppMainSplit)
                 .addContainerGap())
         );
 
@@ -237,6 +267,8 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
@@ -246,6 +278,8 @@ public class MainForm extends javax.swing.JFrame {
     public javax.swing.JPanel pnlPrimary;
     public javax.swing.JPanel pnlSecondary;
     public javax.swing.JSplitPane sppMainSplit;
+    public javax.swing.JTextField txtGamesPlayed1;
+    public javax.swing.JTextField txtGamesPlayed2;
     public javax.swing.JTextField txtTeam1;
     public javax.swing.JTextField txtTeam2;
     // End of variables declaration//GEN-END:variables

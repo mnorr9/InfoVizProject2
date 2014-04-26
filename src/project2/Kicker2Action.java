@@ -34,6 +34,8 @@ public class Kicker2Action implements ItemListener{
             System.out.println("Blue Kicker2: " + name + ";  Longest kick: " + longestFieldGoal);
             scene.setPosition2((float) longestFieldGoal);
             form.txtTeam2.setText(kb.getKicker(name).getTeamName());
+            String attempts = Double.toString(kb.getKicker(name).getFieldGoalAttempts());
+            form.txtGamesPlayed2.setText(attempts);
         }
     }   
 }

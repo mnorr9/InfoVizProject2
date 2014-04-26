@@ -55,7 +55,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="sppMainSplit" pref="508" max="32767" attributes="0"/>
+              <Component id="sppMainSplit" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -100,9 +100,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="194" max="32767" attributes="0"/>
+                      <EmptySpace pref="148" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -129,9 +129,15 @@
                                   <Component id="cmbKicker1" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtTeam1" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtGamesPlayed1" max="32767" attributes="0"/>
+                                      <Component id="txtTeam1" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -150,7 +156,12 @@
                               <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtTeam1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="62" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtGamesPlayed1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -189,6 +200,20 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JLabel" name="jLabel5">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="FGA:"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Field Goals Attempts"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtGamesPlayed1">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Field Goals Attempts"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel2">
@@ -212,10 +237,16 @@
                                   <Component id="cmbKicker2" pref="98" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtTeam2" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtGamesPlayed2" max="32767" attributes="0"/>
+                                      <Component id="txtTeam2" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -234,7 +265,12 @@
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtTeam2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="48" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtGamesPlayed2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="14" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -268,6 +304,20 @@
                 <Component class="javax.swing.JTextField" name="txtTeam2">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="FGA"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Field Goals Attempts"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtGamesPlayed2">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Field Goals Attempts"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
