@@ -55,6 +55,9 @@ public class MainForm extends javax.swing.JFrame {
         pnlPrimary = new javax.swing.JPanel();
         mnbMain = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        mnItemOpen = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mnItemExit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -199,6 +202,14 @@ public class MainForm extends javax.swing.JFrame {
         sppMainSplit.setRightComponent(jScrollPane2);
 
         jMenu1.setText("File");
+
+        mnItemOpen.setText("Open");
+        jMenu1.add(mnItemOpen);
+        jMenu1.add(jSeparator1);
+
+        mnItemExit.setText("Exit");
+        jMenu1.add(mnItemExit);
+
         mnbMain.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -275,6 +286,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    public javax.swing.JMenuItem mnItemExit;
+    public javax.swing.JMenuItem mnItemOpen;
     public javax.swing.JMenuBar mnbMain;
     public javax.swing.JPanel pnlPrimary;
     public javax.swing.JPanel pnlSecondary;
