@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package project2;
 
@@ -16,8 +12,9 @@ import java.util.prefs.Preferences;
 import javax.swing.JFileChooser;
 
 /**
- *
- * @author nasser
+ * Implementation of the actionlistener associated with the "Open" menu item 
+ * under the "File" menu item.  
+ * @author Nacer Abreu
  */
 public class OpenAction implements ActionListener{
     
@@ -47,8 +44,6 @@ public class OpenAction implements ActionListener{
         
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
-            
-            //This is where a real application would open the file.
             kb.buildKickerDatabase(file.getAbsolutePath());
             form.cmbRedKicker.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
             form.cmbBlueKicker.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));

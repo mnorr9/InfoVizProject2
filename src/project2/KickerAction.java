@@ -49,5 +49,5 @@ public class KickerAction implements ItemListener{
             
             
         }//end of ItemEvent.SELECTED
-    }   
+    }//end of itemStateChanged()   
 }

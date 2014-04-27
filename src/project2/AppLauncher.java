@@ -9,7 +9,7 @@ import java.util.prefs.Preferences;
 
 /**
  * This is the application entry point. In addition, is in charge of 
- * instantiating different different elements of the application. 
+ * instantiating different elements of the application. 
  * @author Nacer Abreu
  */
 public class AppLauncher {
@@ -40,8 +40,6 @@ public class AppLauncher {
 
         KickerAction kicker1 = new KickerAction(scene, kb, form);
         form.cmbRedKicker.addItemListener(kicker1);
-
-//        Kicker2Action kicker2 = new Kicker2Action(scene, kb, form);
         form.cmbBlueKicker.addItemListener(kicker1);
         
         OpenAction openAction = new OpenAction(form, kb);
