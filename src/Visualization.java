@@ -159,13 +159,17 @@ public class Visualization implements GLEventListener, KeyListener{
      * @param gl 
      */
     private void drawRedBar(GL gl) {
+        float width = 0;
+        if (redWidth > blueWidth){
+            width = 0.2f;
+        }
         gl.glPushMatrix();
             gl.glTranslatef(-4.965f, 1.1f, 0.0f);
             gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
             gl.glBegin(GL.GL_QUADS);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
-                gl.glVertex3f(0.0f, 0.1f + redWidth, 0.0f);
-                gl.glVertex3f(x_red_coord, 0.1f + redWidth, 0.0f);
+                gl.glVertex3f(0.0f, 0.1f + width, 0.0f);
+                gl.glVertex3f(x_red_coord, 0.1f + width, 0.0f);
                 gl.glVertex3f(x_red_coord, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
@@ -177,13 +181,17 @@ public class Visualization implements GLEventListener, KeyListener{
      * @param gl 
      */
     private void drawBlueBar(GL gl) {
+        float width = 0;
+        if (blueWidth > redWidth){
+            width = 0.2f;
+        }
         gl.glPushMatrix();
             gl.glTranslatef(-4.965f, -0.2f, 0.0f);
             gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
             gl.glBegin(GL.GL_QUADS);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
-                gl.glVertex3f(0.0f, 0.1f + blueWidth, 0.0f);
-                gl.glVertex3f(x_blue_coord, 0.1f + blueWidth, 0.0f);
+                gl.glVertex3f(0.0f, 0.1f + width, 0.0f);
+                gl.glVertex3f(x_blue_coord, 0.1f + width, 0.0f);
                 gl.glVertex3f(x_blue_coord, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
