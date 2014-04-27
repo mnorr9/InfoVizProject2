@@ -30,6 +30,8 @@ public class KickerBuilder
     
     try
     {
+      kickerList.clear();
+      
       br = new BufferedReader(new FileReader(csvFileToRead));
       line = br.readLine();  //Read in first line since it is just categories.
 
