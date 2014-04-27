@@ -30,7 +30,7 @@ import com.sun.opengl.util.texture.TextureIO;
 
 /**
 *
-* @author nasser
+* @author Nacer Abreu
 */
 
 
@@ -52,15 +52,15 @@ public class Visualization implements GLEventListener, KeyListener{
     private float up_y;
     private float up_z;
     private float angle; // angle of rotation for the camera direction
-    private float x_position1;
-    private float x_position2;
+    private float x_red_coord;
+    private float x_blue_coord;
 
     public Visualization() {
 
         cameraInit();
 
-        x_position1 = 0f;
-        x_position2 = 0f;
+        x_red_coord = 0f;
+        x_blue_coord = 0f;
         
         // Construct an FPS animator, which drives drawable's display()
         // at the specified frames per second
@@ -126,8 +126,8 @@ public class Visualization implements GLEventListener, KeyListener{
         gl.glPushMatrix();
             gl.glColor3f(1.0f, 1.0f, 1.0f); // white
             drawField(gl);
-            drawRedArrow(gl);
-            drawBlueArrow(gl);
+            drawRedBar(gl);
+            drawBlueBar(gl);
         gl.glPopMatrix();
 
            
@@ -156,46 +156,50 @@ public class Visualization implements GLEventListener, KeyListener{
      * kicker#1 
      * @param gl 
      */
-    private void drawRedArrow(GL gl) {
+    private void drawRedBar(GL gl) {
         gl.glPushMatrix();
             gl.glTranslatef(-4.965f, 1.1f, 0.0f);
             gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
             gl.glLineWidth(6.0f);
             gl.glBegin(GL.GL_LINES);            
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
-                gl.glVertex3f(x_position1, 0.0f, 0.0f);
+                gl.glVertex3f(x_red_coord, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
 
-    }//end of drawRedArrow()
+    }//end of drawRedBar()
     
     /**
      * This function creates the bar that represents the longest kick by
      * kicker#2 
      * @param gl 
      */
-    private void drawBlueArrow(GL gl) {
+    private void drawBlueBar(GL gl) {
         gl.glPushMatrix();
             gl.glTranslatef(-4.965f, -0.2f, 0.0f);
             gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
             gl.glLineWidth(6.0f);
             gl.glBegin(GL.GL_LINES);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
-                gl.glVertex3f(x_position2, 0.0f, 0.0f);
+                gl.glVertex3f(x_blue_coord, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
 
-    }//end of drawBlueArrow()
+    }//end of drawBlueBar()
 
     
-    public void setPosition1(float yards) {
-        x_position1 = (float) ((0.39f * yards) / 5.0f);
-        System.out.println("Yards1 --> " + x_position1);
-    }  
-    public void setPosition2(float yards) {
-        x_position2 = (float) ((0.39f * yards) / 5.0f);
-        System.out.println("Yards2 --> " + x_position1);
-    }     
+    public void setXCoordinate(float yards, String color) {
+        
+        float coord = (float) ((0.39f * yards) / 5.0f);
+        if (color.equalsIgnoreCase("red")){
+            x_red_coord = coord;
+        }
+        
+        if (color.equalsIgnoreCase("blue")){
+            x_blue_coord = coord;
+        }       
+    }//end of setXCoordinates  
+
     
     @Override
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
