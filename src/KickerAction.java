@@ -35,6 +35,7 @@ public class KickerAction implements ItemListener{
                 System.out.println("Red Kicker: " + name + ";  Longest kick: " + longestFieldGoal);
                 scene.setXCoordinate((float) longestFieldGoal, "red");
                 form.txtRedTeam.setText(kb.getKicker(name).getTeamName());
+                // scene.setRedWidth((float) kb.getKicker(name).getNumberOfFumbles() / 100);
                 String attempts = Double.toString(kb.getKicker(name).getFieldGoalAttempts());
                 form.txtRedGamesPlayed.setText(attempts);
             }// Red Kicker
@@ -43,6 +44,7 @@ public class KickerAction implements ItemListener{
                 System.out.println("Blue Kicker: " + name + ";  Longest kick: " + longestFieldGoal);
                 scene.setXCoordinate((float) longestFieldGoal, "blue");
                 form.txtBlueTeam.setText(kb.getKicker(name).getTeamName());
+                //scene.setBlueWidth((float) kb.getKicker(name).getFieldGoalPercentage() / 100);
                 String attempts = Double.toString(kb.getKicker(name).getFieldGoalAttempts());
                 form.txtBlueGamesPlayed.setText(attempts);
             }// Blue Kicker

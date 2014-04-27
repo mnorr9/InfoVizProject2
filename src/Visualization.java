@@ -50,6 +50,8 @@ public class Visualization implements GLEventListener, KeyListener{
     private float angle; // angle of rotation for the camera direction
     private float x_red_coord;
     private float x_blue_coord;
+    private float blueWidth;
+    private float redWidth;
 
     public Visualization() {
 
@@ -57,6 +59,8 @@ public class Visualization implements GLEventListener, KeyListener{
 
         x_red_coord = 0f;
         x_blue_coord = 0f;
+        blueWidth = 0f;
+        redWidth = 0f;
         
         // Construct an FPS animator, which drives drawable's display()
         // at the specified frames per second
@@ -94,6 +98,8 @@ public class Visualization implements GLEventListener, KeyListener{
       
       // blends colors nicely, and smoothes out lighting
       gl.glShadeModel(gl.GL_SMOOTH);
+      
+      gl.glEnable(GL.GL_SMOOTH);
       
       loadTexture("American_Football_field.png", gl);
       
@@ -156,13 +162,13 @@ public class Visualization implements GLEventListener, KeyListener{
         gl.glPushMatrix();
             gl.glTranslatef(-4.965f, 1.1f, 0.0f);
             gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
-            gl.glLineWidth(6.0f);
-            gl.glBegin(GL.GL_LINES);            
+            gl.glBegin(GL.GL_QUADS);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
+                gl.glVertex3f(0.0f, 0.1f + redWidth, 0.0f);
+                gl.glVertex3f(x_red_coord, 0.1f + redWidth, 0.0f);
                 gl.glVertex3f(x_red_coord, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
-
     }//end of drawRedBar()
     
     /**
@@ -174,12 +180,14 @@ public class Visualization implements GLEventListener, KeyListener{
         gl.glPushMatrix();
             gl.glTranslatef(-4.965f, -0.2f, 0.0f);
             gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
-            gl.glLineWidth(6.0f);
-            gl.glBegin(GL.GL_LINES);
+            gl.glBegin(GL.GL_QUADS);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
+                gl.glVertex3f(0.0f, 0.1f + blueWidth, 0.0f);
+                gl.glVertex3f(x_blue_coord, 0.1f + blueWidth, 0.0f);
                 gl.glVertex3f(x_blue_coord, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
+        
 
     }//end of drawBlueBar()
 
@@ -196,6 +204,19 @@ public class Visualization implements GLEventListener, KeyListener{
         }       
     }//end of setXCoordinates  
 
+    public void setRedWidth(float width) {
+
+        this.redWidth = (width);
+        System.out.println("Red Width: " + this.redWidth);        
+     
+    }//end of setRedWidth()
+    
+    public void setBlueWidth(float width) {
+
+        this.blueWidth = (width);
+        System.out.println("Blue Width: " + this.blueWidth);        
+     
+    }//end of setRedWidth()    
     
     @Override
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
