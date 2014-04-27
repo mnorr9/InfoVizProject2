@@ -2,7 +2,11 @@
 
 
 import javax.swing.WindowConstants;
+
 import database.KickerBuilder;
+
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.prefs.Preferences;
 
 
@@ -48,6 +52,23 @@ public class AppLauncher {
         form.setVisible(true);
         form.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
+        centerWindow(form);
+        
+    }
+    
+    public static void centerWindow(MainForm form) 
+    {
+        Dimension screenSize =
+            Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize = form.getSize();
+        if (frameSize.width > screenSize.width )
+            frameSize.width = screenSize.width;
+        if (frameSize.height > screenSize.height)
+            frameSize.height = screenSize.height;
+        form.setLocation (
+                   (screenSize.width - frameSize.width ) >> 1,
+                   (screenSize.height - frameSize.height) >> 1
+                   );
     }
     
 }
