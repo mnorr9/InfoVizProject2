@@ -14,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 
 /**
  *
@@ -51,8 +50,8 @@ public class OpenAction implements ActionListener{
             
             //This is where a real application would open the file.
             kb.buildKickerDatabase(file.getAbsolutePath());
-            form.cmbKicker1.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
-            form.cmbKicker2.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
+            form.cmbRedKicker.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
+            form.cmbBlueKicker.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
             myPrefs.put("dbFile", file.getAbsolutePath());
             myPrefs.put("dbDir", file.getPath());
             log = ("Opening: " + file.getAbsolutePath() + "." + "\n");

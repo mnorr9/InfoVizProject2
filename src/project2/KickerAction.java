@@ -31,20 +31,20 @@ public class KickerAction implements ItemListener{
             String name = event.getItem().toString();
             double longestFieldGoal = kb.getKicker(name).getLongestFieldGoal();
             
-            if (event.getSource() == form.cmbKicker1) {
+            if (event.getSource() == form.cmbRedKicker) {
                 System.out.println("Red Kicker: " + name + ";  Longest kick: " + longestFieldGoal);
                 scene.setXCoordinate((float) longestFieldGoal, "red");
-                form.txtTeam1.setText(kb.getKicker(name).getTeamName());
+                form.txtRedTeam.setText(kb.getKicker(name).getTeamName());
                 String attempts = Double.toString(kb.getKicker(name).getFieldGoalAttempts());
-                form.txtGamesPlayed1.setText(attempts);
+                form.txtRedGamesPlayed.setText(attempts);
             }// Red Kicker
             
-            if (event.getSource() == form.cmbKicker2) {
+            if (event.getSource() == form.cmbBlueKicker) {
                 System.out.println("Blue Kicker: " + name + ";  Longest kick: " + longestFieldGoal);
                 scene.setXCoordinate((float) longestFieldGoal, "blue");
-                form.txtTeam2.setText(kb.getKicker(name).getTeamName());
+                form.txtBlueTeam.setText(kb.getKicker(name).getTeamName());
                 String attempts = Double.toString(kb.getKicker(name).getFieldGoalAttempts());
-                form.txtGamesPlayed2.setText(attempts);
+                form.txtBlueGamesPlayed.setText(attempts);
             }// Blue Kicker
             
             
