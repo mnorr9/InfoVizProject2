@@ -31,7 +31,7 @@ public class AppLauncher {
         
         KickerBuilder kb = new KickerBuilder();
         
-        System.out.println(file + "\n");
+
         if (!file.isEmpty()){
             kb.buildKickerDatabase(file);
         }
