@@ -59,7 +59,7 @@ public class KickerAction implements ItemListener{
         
         if (this.redLongestFieldGoal > this.blueLongestFieldGoal){
             form.txtRedTeam.setBackground(Color.RED);
-            //form.txtRedTeam.setForeground(Color.WHITE);
+            form.txtRedTeam.setForeground(Color.WHITE);
         }else{
             form.txtRedTeam.setBackground(Color.WHITE);
             form.txtRedTeam.setForeground(Color.BLACK);
@@ -67,7 +67,7 @@ public class KickerAction implements ItemListener{
         
         if (this.blueLongestFieldGoal > this.redLongestFieldGoal){
             form.txtBlueTeam.setBackground(Color.BLUE);
-            //form.txtBlueTeam.setForeground(Color.WHITE);
+            form.txtBlueTeam.setForeground(Color.WHITE);
         }else{
             form.txtBlueTeam.setBackground(Color.WHITE);
             form.txtBlueTeam.setForeground(Color.BLACK);

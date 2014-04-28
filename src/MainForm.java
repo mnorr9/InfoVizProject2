@@ -74,11 +74,18 @@ public class MainForm extends javax.swing.JFrame {
         jLabel3.setText("Team:");
 
         txtRedTeam.setEditable(false);
+        txtRedTeam.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        txtRedTeam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRedTeamActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("FGA:");
         jLabel5.setToolTipText("Field Goals Attempts");
 
         txtRedGamesPlayed.setEditable(false);
+        txtRedGamesPlayed.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         txtRedGamesPlayed.setToolTipText("Field Goals Attempts");
 
         javax.swing.GroupLayout pnlRedLayout = new javax.swing.GroupLayout(pnlRed);
@@ -124,11 +131,13 @@ public class MainForm extends javax.swing.JFrame {
         jLabel4.setText("Team:");
 
         txtBlueTeam.setEditable(false);
+        txtBlueTeam.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
 
         jLabel6.setText("FGA:");
         jLabel6.setToolTipText("Field Goals Attempts");
 
         txtBlueGamesPlayed.setEditable(false);
+        txtBlueGamesPlayed.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         txtBlueGamesPlayed.setToolTipText("Field Goals Attempts");
 
         javax.swing.GroupLayout pnlBlueLayout = new javax.swing.GroupLayout(pnlBlue);
@@ -228,6 +237,10 @@ public class MainForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtRedTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRedTeamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRedTeamActionPerformed
 
     /**
      * @param args the command line arguments
