@@ -195,11 +195,38 @@ public class Visualization implements GLEventListener, KeyListener{
                 gl.glVertex3f(x_blue_coord, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
-        
+        //drawFilledCircle(gl);
 
     }//end of drawBlueBar()
 
-    
+    /*
+     * Function that handles the drawing of a circle using the triangle fan
+     * method. This will create a filled circle.
+     *
+     */
+    void drawFilledCircle(GL gl) {
+        float x = 0;
+        float y = 0;
+        float radius = 0.15f;
+        float pi = (float) 3.1416;
+        float twicePi = (float) (2.0f * Math.PI);
+
+        int triangleAmount = 20; //# of triangles used to draw circle
+
+        gl.glPushMatrix();
+            gl.glTranslatef(-4.965f, -0.2f, 0.0f);
+            gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
+            gl.glBegin(GL.GL_TRIANGLE_FAN);
+                gl.glVertex2f(x, y); // center of circle
+                for (int i = 0; i <= triangleAmount; i++) {
+                    gl.glVertex2f(
+                            (float) (x + (radius * Math.cos(i * twicePi / triangleAmount))),
+                            (float) (y + (radius * Math.sin(i * twicePi / triangleAmount))));
+                }
+            gl.glEnd();
+        gl.glPopMatrix();
+    }
+
     public void setXCoordinate(float yards, String color) {
         
         float coord = (float) ((0.39f * yards) / 5.0f);
