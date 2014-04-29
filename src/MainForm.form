@@ -278,7 +278,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="txtBlueTeam" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cmbBlueKicker" max="32767" attributes="0"/>
+                              <Component id="cmbBlueKicker" pref="118" max="32767" attributes="0"/>
                               <Component id="txtBlueGamesPlayed" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -382,12 +382,12 @@
                               <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtBestFieldGoalPercentage" pref="49" max="32767" attributes="0"/>
-                              <Component id="txtLongestFieldGoal" max="32767" attributes="0"/>
+                              <Component id="txtLongestFieldGoal" pref="92" max="32767" attributes="0"/>
+                              <Component id="txtBestFieldGoalPercentage" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -411,7 +411,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Longest Field Goal:"/>
+                    <Property name="text" type="java.lang.String" value="Longest FG:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtLongestFieldGoal">
@@ -424,7 +424,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Best Field Goal %:"/>
+                    <Property name="text" type="java.lang.String" value="Best FG %:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtBestFieldGoalPercentage">

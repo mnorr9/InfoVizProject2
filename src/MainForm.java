@@ -163,7 +163,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlBlueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtBlueTeam, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbBlueKicker, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbBlueKicker, 0, 118, Short.MAX_VALUE)
                     .addComponent(txtBlueGamesPlayed))
                 .addContainerGap())
         );
@@ -186,11 +186,11 @@ public class MainForm extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Quick Stats"));
 
-        jLabel7.setText("Longest Field Goal:");
+        jLabel7.setText("Longest FG:");
 
         txtLongestFieldGoal.setEditable(false);
 
-        jLabel8.setText("Best Field Goal %:");
+        jLabel8.setText("Best FG %:");
 
         txtBestFieldGoalPercentage.setEditable(false);
 
@@ -203,11 +203,11 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtBestFieldGoalPercentage, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(txtLongestFieldGoal))
-                .addContainerGap())
+                    .addComponent(txtLongestFieldGoal, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                    .addComponent(txtBestFieldGoalPercentage))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

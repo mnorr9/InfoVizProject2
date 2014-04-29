@@ -71,42 +71,42 @@ public class KickerAction implements ItemListener{
     
     private void determineLongestFieldGoal() {
 
-        //form.txtLongestFieldGoal.setForeground(Color.WHITE);
-        //form.txtLongestFieldGoal.setBackground(Color.WHITE);
-        
         if (this.redLongestFieldGoal > this.blueLongestFieldGoal) {
-            // form.txtLongestFieldGoal.setBackground(Color.RED);
-            form.txtLongestFieldGoal.setText("RED");
+            String kicker = form.cmbRedKicker.getSelectedItem().toString();
+            String[] name = kicker.split(" ");
+            form.txtLongestFieldGoal.setText(name[1]);
         }
 
         if (this.redLongestFieldGoal < this.blueLongestFieldGoal) {
-            //form.txtLongestFieldGoal.setBackground(Color.BLUE);
-            form.txtLongestFieldGoal.setText("BLUE");
+            String kicker = form.cmbBlueKicker.getSelectedItem().toString();
+            String[] name = kicker.split(" ");
+            form.txtLongestFieldGoal.setText(name[1]);
         }
 
         if (this.redLongestFieldGoal == this.blueLongestFieldGoal) {
-            //form.txtLongestFieldGoal.setBackground(Color.WHITE);
             form.txtLongestFieldGoal.setText("SAME");
         }
     }//end of determineLongestFieldGoal()
     
     private void determineBestFieldGoalPercentage() {
 
-        //form.txtBestFieldGoalPercentage.setBackground(Color.WHITE);
+
 
         if (redFGP == blueFGP) {
-            //form.txtBestFieldGoalPercentage.setBackground(Color.WHITE);
             form.txtBestFieldGoalPercentage.setText("SAME");
         }
 
         if (redFGP > blueFGP) {
-            //form.txtBestFieldGoalPercentage.setBackground(Color.RED);
-            form.txtBestFieldGoalPercentage.setText("RED");
+            String kicker = form.cmbRedKicker.getSelectedItem().toString();
+            String[] name = kicker.split(" ");
+            form.txtBestFieldGoalPercentage.setText(name[1]);            
         }
 
         if (redFGP < blueFGP) {
-            //form.txtBestFieldGoalPercentage.setBackground(Color.BLUE);
-            form.txtBestFieldGoalPercentage.setText("BLUE");
+            String kicker = form.cmbBlueKicker.getSelectedItem().toString();
+            String[] name = kicker.split(" ");
+            form.txtBestFieldGoalPercentage.setText(name[1]);
+            
         }
 
     }//end of determineBestFieldGoalPercentage()
