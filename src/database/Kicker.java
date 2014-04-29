@@ -1,5 +1,11 @@
 package database;
 
+/**
+ *   Kicker Class.
+ *   Contains all necessary fields to create a kicker.
+ * 
+ *   @author David
+ */
 public class Kicker extends Player
 {
   private FGDistanceStats distance_attempted;
@@ -32,7 +38,8 @@ public class Kicker extends Player
   /**
    *   Function to populate the fields in the kicker class.
    *   Takes an array string that contains each element in
-   *   the class.
+   *   the class. Current design needs the string to match
+   *   up perfectly in the right order.
    *   
    *   @param stat_field
    */
@@ -44,20 +51,20 @@ public class Kicker extends Player
     team_name                     = stat_field[1];
     num_games_played              = Double.parseDouble(stat_field[2]);
     temp = stat_field[3].split(splitBy);
-    distance_made.fg_0_19         = Double.parseDouble(temp[0]); //Double.parseDouble(stat_field[3]);
-    distance_attempted.fg_0_19    = Double.parseDouble(temp[1]); //Double.parseDouble(stat_field[3]);
+    distance_made.fg_0_19         = Double.parseDouble(temp[0]);
+    distance_attempted.fg_0_19    = Double.parseDouble(temp[1]);
     temp = stat_field[4].split(splitBy);
-    distance_made.fg_20_29        = Double.parseDouble(temp[0]); //Double.parseDouble(stat_field[4]);
-    distance_attempted.fg_20_29   = Double.parseDouble(temp[1]); //Double.parseDouble(stat_field[4]);
+    distance_made.fg_20_29        = Double.parseDouble(temp[0]);
+    distance_attempted.fg_20_29   = Double.parseDouble(temp[1]);
     temp = stat_field[5].split(splitBy);
-    distance_made.fg_30_39        = Double.parseDouble(temp[0]); //Double.parseDouble(stat_field[5]);
-    distance_attempted.fg_30_39   = Double.parseDouble(temp[1]); //Double.parseDouble(stat_field[5]);
+    distance_made.fg_30_39        = Double.parseDouble(temp[0]);
+    distance_attempted.fg_30_39   = Double.parseDouble(temp[1]);
     temp = stat_field[6].split(splitBy);
-    distance_made.fg_40_49        = Double.parseDouble(temp[0]); //Double.parseDouble(stat_field[6]);
-    distance_attempted.fg_40_49   = Double.parseDouble(temp[1]); //Double.parseDouble(stat_field[6]);
+    distance_made.fg_40_49        = Double.parseDouble(temp[0]);
+    distance_attempted.fg_40_49   = Double.parseDouble(temp[1]);
     temp = stat_field[7].split(splitBy);
-    distance_made.fg_50_plus      = Double.parseDouble(temp[0]); //Double.parseDouble(stat_field[7]);
-    distance_attempted.fg_50_plus = Double.parseDouble(temp[1]); //Double.parseDouble(stat_field[7]);
+    distance_made.fg_50_plus      = Double.parseDouble(temp[0]);
+    distance_attempted.fg_50_plus = Double.parseDouble(temp[1]);
     field_goals_made              = Double.parseDouble(stat_field[8]);
     field_goal_attempts           = Double.parseDouble(stat_field[9]);
     field_goal_percentage         = Double.parseDouble(stat_field[10]);
