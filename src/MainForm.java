@@ -230,6 +230,7 @@ public class MainForm extends javax.swing.JFrame {
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("jRadioButton2");
 
+        buttonGroup1.add(jRadioButton3);
         jRadioButton3.setText("jRadioButton3");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
