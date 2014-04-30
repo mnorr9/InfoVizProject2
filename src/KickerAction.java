@@ -7,8 +7,8 @@ import java.awt.Color;
 
 
 /**
- * This class is responsible for listening for any events related from the 
- * appropriate combobox widget and calling/triggering the  
+ * This class is an implementation of the ItemListenerClass. It is used to 
+ * listen for events from the JComboBoxes in MainForm.  
  * 
  * @author Nacer Abreu
  */
