@@ -5,15 +5,15 @@ package database;
  *   Contains all the field goal distances a kicker
  *   can kick from.
  * 
- *   @author David
+ *   @author David Gwalthney
  */
 public class FGDistanceStats
 {
-  public double fg_0_19;
-  public double fg_20_29;
-  public double fg_30_39;
-  public double fg_40_49;
-  public double fg_50_plus;
+  private double fg_0_19;
+  private double fg_20_29;
+  private double fg_30_39;
+  private double fg_40_49;
+  private double fg_50_plus;
 
   /**
    *   Constructor for the field goal distance class.
@@ -78,4 +78,51 @@ public class FGDistanceStats
     return fg_50_plus;
   }
 
+  /**
+   *   Setter function to save off the number of field goals made
+   *   between 10 and 19 yards.
+   *    
+   */
+  public void set10To19FieldGoals(double goals)
+  {
+    fg_0_19 = goals;
+  }
+  
+  /**
+   *   Setter function to save off the number of field goals made
+   *   between 20 and 29 yards.
+   *    
+   */
+  public void set20To29FieldGoals(double goals)
+  {
+    fg_20_29 = goals;
+  }
+    
+  /**
+   *   Setter function to save off the number of field goals made
+   *   between 30 and 39 yards.    
+   */
+  public void set30To39FieldGoals(double goals)
+  {
+    fg_30_39 = goals;
+  }
+  
+  /**
+   *   Setter function to save off the number of field goals made
+   *   between 40 and 49 yards.
+   */
+  public void set40To49FieldGoals(double goals)
+  {
+    fg_40_49 = goals;
+  }
+    
+  /**
+   *   Setter function to save off the number of field goals made
+   *   at 50+ yards.  
+   */
+  public void set50PlusFieldGoals(double goals)
+  {
+    fg_50_plus = goals;
+  }  
+  
 }
