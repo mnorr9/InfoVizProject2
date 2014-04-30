@@ -56,6 +56,11 @@ public class AppLauncher {
         
     }
     
+    /**
+     * makes sure the application main form displays at the center of the user 
+     * screen. 
+     * @param form - MainForm instance 
+     */
     public static void centerWindow(MainForm form) 
     {
         Dimension screenSize =
