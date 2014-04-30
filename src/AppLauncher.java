@@ -19,8 +19,8 @@ public class AppLauncher {
         MainForm form = new MainForm();
         Visualization scene = new Visualization();
         
-        /** Attaches GLCanvas to JPanel in MainForm */
-        scene.attachToPanel(form.pnlPrimary);
+        /** Attaches the GLCanvas to JPanel in MainForm */
+        scene.attachToPanel(form.pnlPrimary); 
 
         Preferences prefsRoot = Preferences.userRoot();
         Preferences myPrefs = prefsRoot.node("edu.rowan.team2.staticPreferenceLoader");
@@ -29,7 +29,6 @@ public class AppLauncher {
         
         String file = myPrefs.get("dbFile", "");
         if (!file.isEmpty()){
-            /** Opens previously opened .cvs file */
             kb.buildKickerDatabase(file);
         }
         
