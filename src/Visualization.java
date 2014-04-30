@@ -25,11 +25,11 @@ import com.sun.opengl.util.texture.TextureIO;
 
 
 /**
-*
+* This class creates a bar visualization based on the .cvs chosen by the user.
+* This class uses JOGL to create or map the graphical elements on a GLCanvas, 
+* which subsequently is added to the main JFrame of this application.
 * @author Nacer Abreu
 */
-
-
 
 public class Visualization implements GLEventListener, KeyListener{
 
@@ -53,17 +53,18 @@ public class Visualization implements GLEventListener, KeyListener{
     private float blueWidth;
     private float redWidth;
 
+    /**
+     * Constructor.
+     */
     public Visualization() {
-
         cameraInit();
-
         x_red_coord = 0f;
         x_blue_coord = 0f;
         blueWidth = 0f;
         redWidth = 0f;
         
-        // Construct an FPS animator, which drives drawable's display()
-        // at the specified frames per second
+        // Construct an FPS animator, which drives drawable's display() at the 
+        // specified frames per second
         FPSAnimator animator = new FPSAnimator(canvas, 60);
 
         GLCapabilities caps = new GLCapabilities();
@@ -131,10 +132,16 @@ public class Visualization implements GLEventListener, KeyListener{
             drawRedBar(gl);
             drawBlueBar(gl);
         gl.glPopMatrix();
-
-           
+        gl.glFlush();    
+        
     }//end of display()
-
+    
+    /**
+    * This function draws a rectangle and applies the a GL_TEXTURE_2D to it.
+    * In this case, an image of an American football field.
+    * @param gl - The basic interface to OpenGL, providing access to core 
+    * functionality
+    */
     private void drawField(GL gl){
         gl.glPushMatrix();
             gl.glEnable(gl.GL_TEXTURE_2D);
@@ -155,8 +162,9 @@ public class Visualization implements GLEventListener, KeyListener{
 
     /**
      * This function creates the bar that represents the longest kick by
-     * kicker#1 
-     * @param gl 
+     * the red kicker 
+     * @param gl The basic interface to OpenGL, providing access to core 
+     * functionality
      */
     private void drawRedBar(GL gl) {
         float width = 0;
@@ -177,8 +185,9 @@ public class Visualization implements GLEventListener, KeyListener{
     
     /**
      * This function creates the bar that represents the longest kick by
-     * kicker#2 
-     * @param gl 
+     * the blue kicker. 
+     * @param gl - The basic interface to OpenGL, providing access to core 
+     * functionality
      */
     private void drawBlueBar(GL gl) {
         float width = 0;
@@ -201,13 +210,14 @@ public class Visualization implements GLEventListener, KeyListener{
 
     /*
      * Function that handles the drawing of a circle using the triangle fan
-     * method. This will create a filled circle.
-     *
+     * method. This will create a filled circle. 
+     * @param gl - The basic interface to OpenGL, providing access to core 
+     * functionality
      */
-    void drawFilledCircle(GL gl) {
+    private void drawFilledCircle(GL gl) {
         float x = 0;
         float y = 0;
-        float radius = 0.15f;
+        float radius = 0.15f; /** Controls the size of the circle */
         float pi = (float) 3.1416;
         float twicePi = (float) (2.0f * Math.PI);
 
@@ -225,7 +235,7 @@ public class Visualization implements GLEventListener, KeyListener{
                 }
             gl.glEnd();
         gl.glPopMatrix();
-    }
+    }//End of drawFilledCircle()
 
     public void setXCoordinate(float yards, String color) {
         
