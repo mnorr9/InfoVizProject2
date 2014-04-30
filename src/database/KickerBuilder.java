@@ -11,19 +11,39 @@ import database.Kicker;
 import java.util.Collections;
 
 
+/**
+ *   Kicker Builder Class.
+ *   Contains all kickers that have been read in.
+ *   Class is a database of all kickers.
+ * 
+ *   @author David
+ */
 public class KickerBuilder
 {
 
   private List<Kicker> kickerList;
   
+  /**
+   *   Constructor for the Kicker Builder class.
+   *   Initializes a new list of kickers to be used.
+   */
   public KickerBuilder()
   {
     kickerList = new ArrayList<Kicker>();
   }
   
+  /**
+   *   Function to build the kicker database.
+   *   File that contains all the kickers is the string
+   *   that gets passed in.
+   *   The function will read one line in at a time,
+   *   parse the line and then create a kicker with that
+   *   data.
+   *   
+   *   @param csvFileToRead
+   */
   public void buildKickerDatabase(String csvFileToRead)
   {
-    //String csvFileToRead = "kicker_stats_2013.csv";
     BufferedReader br = null;
     String line = "";
     String splitBy = ",";
@@ -40,13 +60,13 @@ public class KickerBuilder
         // split on comma(',')
         String[] stats = line.split(splitBy);
 
-        // create car object to store values
+        // create kicker object to store values
         Kicker kickerObject = new Kicker();
 
-        // add values from csv to car object
+        // add values from csv to kicker object
         kickerObject.createKicker(stats);
 
-        // adding car objects to a list
+        // adding kicker objects to a list
         kickerList.add(kickerObject);
       }
     }
@@ -74,6 +94,13 @@ public class KickerBuilder
     }
   }
 
+  /**
+   *   Getter to retrieve the kicker by name.
+   *   If no kicker is found then null is returned.
+   * 
+   *   @param  kicker_name
+   *   @return Kicker
+   */
   public Kicker getKicker(String kicker_name)
   {
     for( Kicker item: kickerList )
@@ -87,6 +114,13 @@ public class KickerBuilder
     return null;
   }
   
+  /**
+   *   Getter to retrieve the kicker by index.
+   *   If the index is invalid then null is returned.
+   * 
+   *   @param  kicker_index
+   *   @return Kicker
+   */
   public Kicker getKicker(int kicker_index)
   {
     if( kicker_index >= 0 && kicker_index <= kickerList.size() )
@@ -97,11 +131,21 @@ public class KickerBuilder
     return null;
   }
 
+  /**
+   *   Getter to retrieve the number of kickers.
+   * 
+   *   @return int
+   */
   public int getNumOfKickers()
   {
     return kickerList.size();
   }
   
+  /**
+   *   Getter to retrieve the list of kickers names.
+   *
+   *   @return ArrayList<String>
+   */
   public ArrayList<String> getNameList() {
 	  ArrayList<String> names = new ArrayList<String>();
 	  for(int i=0; i<getNumOfKickers(); i++) {
