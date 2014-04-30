@@ -25,6 +25,11 @@ public class OpenAction implements ActionListener{
     Preferences prefsRoot; 
     Preferences myPrefs;
     
+    /**
+     * Constructor
+     * @param form Instance of MainForm
+     * @param kb  Instance of KickerBuilder
+     */
     public OpenAction(MainForm form, KickerBuilder kb) {
         prefsRoot = Preferences.userRoot();
         myPrefs = prefsRoot.node("edu.rowan.team2.staticPreferenceLoader");

@@ -1,6 +1,4 @@
 
-
-
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import database.KickerBuilder;
@@ -23,6 +21,12 @@ public class KickerAction implements ItemListener{
     private float redFGP;
     private float blueFGP;
 
+    /**
+     * Constructor
+     * @param scene Instance of Visualization
+     * @param kb Instance of KickerBuilder
+     * @param form Instance of MainForm
+     */
     KickerAction(Visualization scene, KickerBuilder kb, MainForm form) {
         this.scene = scene;
         this.kb = kb;
@@ -69,6 +73,13 @@ public class KickerAction implements ItemListener{
                 
     }//end of itemStateChanged()
     
+    /**
+     * This function is determines which kicker holds the longest field goal 
+     * and then populates the MainForm text field 
+     * "txtLongestFieldGoal" with the last name of this kicker. If the 
+     * percentages are the same, for both kickers, the word "SAME" is used in 
+     * place of the kicker's last name.
+     */
     private void determineLongestFieldGoal() {
 
         if (this.redLongestFieldGoal > this.blueLongestFieldGoal) {
@@ -87,10 +98,15 @@ public class KickerAction implements ItemListener{
             form.txtLongestFieldGoal.setText("SAME");
         }
     }//end of determineLongestFieldGoal()
-    
+
+    /**
+     * This function is determines which kicker has the best field goal 
+     * percentage and then populates the MainForm text field 
+     * "txtBestFieldGoalPercentage" with the last name of this kicker. If the 
+     * percentages are the same, for both kickers, the word "SAME" is used in 
+     * place of the kicker's last name.
+     */
     private void determineBestFieldGoalPercentage() {
-
-
 
         if (redFGP == blueFGP) {
             form.txtBestFieldGoalPercentage.setText("SAME");

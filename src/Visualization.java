@@ -237,6 +237,12 @@ public class Visualization implements GLEventListener, KeyListener{
         gl.glPopMatrix();
     }//End of drawFilledCircle()
 
+    /**
+     * This function converts the number of yards supplied to the corresponding
+     * X-Coord on the texture map associated to the GLCanvas of MainForm.
+     * @param yards Number of yards
+     * @param color Color of the bar be affected. The option are blue or red.
+     */
     public void setXCoordinate(float yards, String color) {
         
         float coord = (float) ((0.39f * yards) / 5.0f);
@@ -249,6 +255,10 @@ public class Visualization implements GLEventListener, KeyListener{
         }       
     }//end of setXCoordinates  
 
+    /**
+     * Sets the width of the red bar
+     * @param width with of the red bar
+     */
     public void setRedWidth(float width) {
 
         this.redWidth = (width);
@@ -256,6 +266,10 @@ public class Visualization implements GLEventListener, KeyListener{
      
     }//end of setRedWidth()
     
+    /**
+     * Sets the width of the blue bar.
+     * @param width width of the blue bar.
+     */
     public void setBlueWidth(float width) {
 
         this.blueWidth = (width);
@@ -370,7 +384,12 @@ public class Visualization implements GLEventListener, KeyListener{
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void attachToPanel(JPanel pnlPrimary) {
+    /**
+     * This function is used to attach any JPanel to the righthand 
+     * (primary panel) of the MainForm splitPanel.
+     * @param pnlPrimary 
+     */
+    public void attachToPanel(JPanel pnlPrimary) {
         pnlPrimary.add(canvas);
         anim = new Animator(canvas);
         anim.start();
@@ -387,6 +406,9 @@ public class Visualization implements GLEventListener, KeyListener{
         }
     }//end of loadTexture()
     
+    /**
+     * Initializes the position of the JOGL camera
+     */
     private void cameraInit() {
         camera_x = 0;
         camera_y = 0;
