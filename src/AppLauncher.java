@@ -1,10 +1,6 @@
 
-
-
 import javax.swing.WindowConstants;
-
 import database.KickerBuilder;
-
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.prefs.Preferences;
@@ -12,9 +8,9 @@ import java.util.prefs.Preferences;
 
 
 /**
- * This is the application entry point. In addition, is in charge of 
- * instantiating different elements of the application. 
- * @author Nacer Abreu
+ * This is the application entry point. In addition, it is in charge of 
+ * instantiating different parts of the application. 
+ * @author Nacer Abreu, David Gwalthney
  */
 public class AppLauncher {
     
@@ -22,29 +18,29 @@ public class AppLauncher {
     public static void main(String[] args) {
         MainForm form = new MainForm();
         Visualization scene = new Visualization();
+        
+        /** Attaches GLCanvas to JPanel in MainForm */
         scene.attachToPanel(form.pnlPrimary);
 
-        /**
-         * 
-         */
         Preferences prefsRoot = Preferences.userRoot();
         Preferences myPrefs = prefsRoot.node("edu.rowan.team2.staticPreferenceLoader");
-        String file = myPrefs.get("dbFile", "");
-        
         
         KickerBuilder kb = new KickerBuilder();
         
-
+        String file = myPrefs.get("dbFile", "");
         if (!file.isEmpty()){
+            /** Opens previously opened .cvs file */
             kb.buildKickerDatabase(file);
         }
         
-        form.cmbRedKicker.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
-        form.cmbBlueKicker.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
+        form.cmbRedKicker.setModel(
+              new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
+        form.cmbBlueKicker.setModel(
+              new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
 
-        KickerAction kicker1 = new KickerAction(scene, kb, form);
-        form.cmbRedKicker.addItemListener(kicker1);
-        form.cmbBlueKicker.addItemListener(kicker1);
+        KickerAction kickerAction = new KickerAction(scene, kb, form);
+        form.cmbRedKicker.addItemListener(kickerAction);
+        form.cmbBlueKicker.addItemListener(kickerAction);
         
         OpenAction openAction = new OpenAction(form, kb);
         form.mnItemOpen.addActionListener(openAction);
@@ -57,9 +53,9 @@ public class AppLauncher {
     }
     
     /**
-     * makes sure the application main form displays at the center of the user 
-     * screen. 
-     * @param form - MainForm instance 
+     * This function ensures that the application main form displays at the 
+     * center of the user screen. 
+     * @param form  MainForm instance 
      */
     public static void centerWindow(MainForm form) 
     {
@@ -76,4 +72,4 @@ public class AppLauncher {
                    );
     }
     
-}
+}//end of class
