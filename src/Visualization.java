@@ -171,6 +171,9 @@ public class Visualization implements GLEventListener, KeyListener{
      * functionality
      */
     private void drawRedBar(GL gl) {
+        float x = -4.965f;
+        float y = 1.1f;
+        
         float width = 0;
         if (redWidth > blueWidth){
             width = 0.2f;
@@ -181,7 +184,7 @@ public class Visualization implements GLEventListener, KeyListener{
         }
         
         gl.glPushMatrix();
-            gl.glTranslatef(-4.965f, 1.1f, 0.0f);
+            gl.glTranslatef(x, y, 0.0f);
             gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
             gl.glBegin(GL.GL_QUADS);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
@@ -190,6 +193,11 @@ public class Visualization implements GLEventListener, KeyListener{
                 gl.glVertex3f(x_red_animated_coord, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
+        
+        if (x_blue_coord < x_red_coord) {
+            drawFilledCircle(gl, (x) + x_red_coord, (y) + (0.15f));
+        }
+        
     }//end of drawRedBar()
     
     /**
@@ -199,6 +207,9 @@ public class Visualization implements GLEventListener, KeyListener{
      * functionality
      */
     private void drawBlueBar(GL gl) {
+        float x = -4.965f;
+        float y = -0.2f;
+        
         float width = 0;
         if (blueWidth > redWidth){
             width = 0.2f;
@@ -208,7 +219,7 @@ public class Visualization implements GLEventListener, KeyListener{
             x_blue_animated_coord += 0.008;
         }
         gl.glPushMatrix();
-            gl.glTranslatef(-4.965f, -0.2f, 0.0f);
+            gl.glTranslatef(x, y, 0.0f);
             gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
             gl.glBegin(GL.GL_QUADS);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
@@ -217,8 +228,10 @@ public class Visualization implements GLEventListener, KeyListener{
                 gl.glVertex3f(x_blue_animated_coord, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
-        //drawFilledCircle(gl);
-
+        
+        if (x_blue_coord > x_red_coord){
+            drawFilledCircle(gl, (x) + x_blue_coord, (y) + (0.15f));
+        }
     }//end of drawBlueBar()
 
     /*
@@ -227,24 +240,24 @@ public class Visualization implements GLEventListener, KeyListener{
      * @param gl - The basic interface to OpenGL, providing access to core 
      * functionality
      */
-    private void drawFilledCircle(GL gl) {
-        float x = 0;
-        float y = 0;
-        float radius = 0.15f; /** Controls the size of the circle */
+    private void drawFilledCircle(GL gl, float x, float y) {
+        float x_circle = 0;
+        float y_circle = 0;
+        float radius = 0.07f; /** Controls the size of the circle */
         float pi = (float) 3.1416;
         float twicePi = (float) (2.0f * Math.PI);
 
         int triangleAmount = 20; //# of triangles used to draw circle
 
         gl.glPushMatrix();
-            gl.glTranslatef(-4.965f, -0.2f, 0.0f);
-            gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
+            gl.glTranslatef(x, y, 0.0f);
+            gl.glColor3f(0.0f, 1.0f, 1.0f); // Blue
             gl.glBegin(GL.GL_TRIANGLE_FAN);
-                gl.glVertex2f(x, y); // center of circle
+                gl.glVertex2f(x_circle, y_circle); // center of circle
                 for (int i = 0; i <= triangleAmount; i++) {
                     gl.glVertex2f(
-                            (float) (x + (radius * Math.cos(i * twicePi / triangleAmount))),
-                            (float) (y + (radius * Math.sin(i * twicePi / triangleAmount))));
+                            (float) (x_circle + (radius * Math.cos(i * twicePi / triangleAmount))),
+                            (float) (y_circle + (radius * Math.sin(i * twicePi / triangleAmount))));
                 }
             gl.glEnd();
         gl.glPopMatrix();
@@ -343,7 +356,7 @@ public class Visualization implements GLEventListener, KeyListener{
         if ((ke.getKeyCode() == KeyEvent.VK_DOWN)
                 && ((ke.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             // Moves DOWNWARD on xz plane
-// if (camera_y >= 0.5) // Do not allow to go beneath 'x' plane
+// if (camera_y >= 0.5) // Do not allow to go beneath 'x_circle' plane
 // {
                 camera_y -= 0.5;
 // }
