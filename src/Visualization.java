@@ -48,10 +48,12 @@ public class Visualization implements GLEventListener, KeyListener{
     private float up_y;
     private float up_z;
     private float angle; // angle of rotation for the camera direction
-    private float x_red_coord;
-    private float x_blue_coord;
+    private float x_red_coord;  // specfies the length of the red bar
+    private float x_blue_coord; // specifies the length of the blue bar.
     private float blueWidth;
     private float redWidth;
+    private float x_red_animated_coord;
+    private float x_blue_animated_coord;
 
     /**
      * Constructor.
@@ -62,6 +64,8 @@ public class Visualization implements GLEventListener, KeyListener{
         x_blue_coord = 0f;
         blueWidth = 0f;
         redWidth = 0f;
+        x_red_animated_coord = 0.0f;
+        x_blue_animated_coord = 0.0f;
         
         // Construct an FPS animator, which drives drawable's display() at the 
         // specified frames per second
@@ -171,14 +175,19 @@ public class Visualization implements GLEventListener, KeyListener{
         if (redWidth > blueWidth){
             width = 0.2f;
         }
+        
+        if (x_red_coord >= x_red_animated_coord){
+            x_red_animated_coord += 0.008;
+        }
+        
         gl.glPushMatrix();
             gl.glTranslatef(-4.965f, 1.1f, 0.0f);
             gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
             gl.glBegin(GL.GL_QUADS);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
                 gl.glVertex3f(0.0f, 0.1f + width, 0.0f);
-                gl.glVertex3f(x_red_coord, 0.1f + width, 0.0f);
-                gl.glVertex3f(x_red_coord, 0.0f, 0.0f);
+                gl.glVertex3f(x_red_animated_coord, 0.1f + width, 0.0f);
+                gl.glVertex3f(x_red_animated_coord, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
     }//end of drawRedBar()
@@ -194,14 +203,18 @@ public class Visualization implements GLEventListener, KeyListener{
         if (blueWidth > redWidth){
             width = 0.2f;
         }
+        
+        if (x_blue_coord >= x_blue_animated_coord){
+            x_blue_animated_coord += 0.008;
+        }
         gl.glPushMatrix();
             gl.glTranslatef(-4.965f, -0.2f, 0.0f);
             gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
             gl.glBegin(GL.GL_QUADS);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
                 gl.glVertex3f(0.0f, 0.1f + width, 0.0f);
-                gl.glVertex3f(x_blue_coord, 0.1f + width, 0.0f);
-                gl.glVertex3f(x_blue_coord, 0.0f, 0.0f);
+                gl.glVertex3f(x_blue_animated_coord, 0.1f + width, 0.0f);
+                gl.glVertex3f(x_blue_animated_coord, 0.0f, 0.0f);
             gl.glEnd();
         gl.glPopMatrix();
         //drawFilledCircle(gl);
@@ -248,10 +261,12 @@ public class Visualization implements GLEventListener, KeyListener{
         float coord = (float) ((0.39f * yards) / 5.0f);
         if (color.equalsIgnoreCase("red")){
             x_red_coord = coord;
+            x_red_animated_coord = 0.0f;
         }
         
         if (color.equalsIgnoreCase("blue")){
             x_blue_coord = coord;
+            x_blue_animated_coord = 0.0f;
         }       
     }//end of setXCoordinates  
 
