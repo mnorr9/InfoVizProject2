@@ -61,6 +61,9 @@ public class KickerAction implements ItemListener{
                 String attempts = Double.toString(kb.getKicker(name).getFieldGoalAttempts());
                 form.txtRedGamesPlayed.setText(attempts);
                 redLongestFieldGoal = (float) longestFieldGoal;
+                if (form.btnGrpPlayers.isSelected(null)){
+                    form.btnGrpPlayers.clearSelection();
+                }
             }// Red Kicker
             
             if (event.getSource() == form.cmbBlueKicker && name == "....") {

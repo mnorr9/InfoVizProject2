@@ -24,6 +24,7 @@ public class MainForm extends javax.swing.JFrame {
     private void initComponents() {
 
         btnGrpPlayers = new javax.swing.ButtonGroup();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         sppMainSplit = new javax.swing.JSplitPane();
         pnlSecondary = new javax.swing.JPanel();
         pnlRed = new javax.swing.JPanel();
@@ -50,6 +51,8 @@ public class MainForm extends javax.swing.JFrame {
         rdBtnPoints = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         pnlPrimary = new javax.swing.JPanel();
+        pnlSecond = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         mnbMain = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnItemOpen = new javax.swing.JMenuItem();
@@ -259,7 +262,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(pnlBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
@@ -270,6 +273,31 @@ public class MainForm extends javax.swing.JFrame {
         jScrollPane2.setViewportView(pnlPrimary);
 
         sppMainSplit.setRightComponent(jScrollPane2);
+
+        jTabbedPane1.addTab("Player Comparisons", sppMainSplit);
+
+        javax.swing.GroupLayout pnlSecondLayout = new javax.swing.GroupLayout(pnlSecond);
+        pnlSecond.setLayout(pnlSecondLayout);
+        pnlSecondLayout.setHorizontalGroup(
+            pnlSecondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 851, Short.MAX_VALUE)
+            .addGroup(pnlSecondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlSecondLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 831, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        pnlSecondLayout.setVerticalGroup(
+            pnlSecondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 517, Short.MAX_VALUE)
+            .addGroup(pnlSecondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlSecondLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        jTabbedPane1.addTab("General Comparisons", pnlSecond);
 
         jMenu1.setText("File");
 
@@ -293,14 +321,14 @@ public class MainForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sppMainSplit, javax.swing.GroupLayout.DEFAULT_SIZE, 856, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sppMainSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 495, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
@@ -363,14 +391,17 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JMenuItem mnItemExit;
     public javax.swing.JMenuItem mnItemOpen;
     public javax.swing.JMenuBar mnbMain;
     public javax.swing.JPanel pnlBlue;
     public javax.swing.JPanel pnlPrimary;
     public javax.swing.JPanel pnlRed;
+    public javax.swing.JPanel pnlSecond;
     public javax.swing.JPanel pnlSecondary;
     public javax.swing.JRadioButton rdBtnBest;
     public javax.swing.JRadioButton rdBtnLongest;
