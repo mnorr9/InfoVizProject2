@@ -50,6 +50,7 @@ public class KickerAction implements ItemListener{
                 redFGP=0;
                 scene.setRedWidth(redFGP);
                 scene.setXCoordinate(0, "red");
+                form.btnGrpPlayers.clearSelection();
             }             
             else if (event.getSource() == form.cmbRedKicker) {
                 double longestFieldGoal = kb.getKicker(name).getLongestFieldGoal();
