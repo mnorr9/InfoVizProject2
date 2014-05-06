@@ -10,7 +10,7 @@ import java.awt.Color;
  * This class is an implementation of the ItemListenerClass. It is used to 
  * listen for events from the JComboBoxes in MainForm.  
  * 
- * @author Nacer Abreu
+ * @author Nacer Abreu, Emmanuel Bonilla
  */
 public class KickerAction implements ItemListener{
     private final Visualization scene;
@@ -42,10 +42,17 @@ public class KickerAction implements ItemListener{
         
         if (event.getStateChange() == ItemEvent.SELECTED) {
             String name = event.getItem().toString();
-            double longestFieldGoal = kb.getKicker(name).getLongestFieldGoal();
-
             
-            if (event.getSource() == form.cmbRedKicker) {
+            if (event.getSource() == form.cmbRedKicker && name == "....") {
+                form.txtRedTeam.setText("");
+                form.txtRedGamesPlayed.setText("");
+                redLongestFieldGoal = 0;
+                redFGP=0;
+                scene.setRedWidth(redFGP);
+                scene.setXCoordinate(0, "red");
+            }             
+            else if (event.getSource() == form.cmbRedKicker) {
+                double longestFieldGoal = kb.getKicker(name).getLongestFieldGoal();
                 System.out.println("Red Kicker: " + name + ";  Longest kick: " + longestFieldGoal);
                 scene.setXCoordinate((float) longestFieldGoal, "red");
                 form.txtRedTeam.setText(kb.getKicker(name).getTeamName());
@@ -56,7 +63,17 @@ public class KickerAction implements ItemListener{
                 redLongestFieldGoal = (float) longestFieldGoal;
             }// Red Kicker
             
-            if (event.getSource() == form.cmbBlueKicker) {
+            if (event.getSource() == form.cmbBlueKicker && name == "....") {
+                form.txtBlueTeam.setText("");
+                form.txtBlueGamesPlayed.setText("");
+                blueLongestFieldGoal = -1;
+                blueFGP=0;
+                scene.setBlueWidth(blueFGP);
+                scene.setXCoordinate(0, "blue");
+            }             
+            else if 
+            	(event.getSource() == form.cmbBlueKicker) {
+                double longestFieldGoal = kb.getKicker(name).getLongestFieldGoal();
                 System.out.println("Blue Kicker: " + name + ";  Longest kick: " + longestFieldGoal);
                 scene.setXCoordinate((float) longestFieldGoal, "blue");
                 form.txtBlueTeam.setText(kb.getKicker(name).getTeamName());
@@ -66,10 +83,17 @@ public class KickerAction implements ItemListener{
                 form.txtBlueGamesPlayed.setText(attempts);
                 blueLongestFieldGoal = (float) longestFieldGoal;
             }// Blue Kicker
+
+            if ((name == "...." && redFGP==0) &&
+            	(name == "...." && blueFGP==0)) {
+                	form.txtLongestFieldGoal.setText("");
+                    form.txtBestFieldGoalPercentage.setText("");
+            } else {
+            	determineLongestFieldGoal();
+            	determineBestFieldGoalPercentage();
+        	}
         }//end of ItemEvent.SELECTED
         
-        determineLongestFieldGoal();
-        determineBestFieldGoalPercentage();
                 
     }//end of itemStateChanged()
     
