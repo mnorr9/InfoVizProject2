@@ -7,61 +7,68 @@ import database.KickerBuilder;
 
 public class QuckPickAction implements ActionListener {
 
-	
+
 	final MainForm form;
 	final KickerBuilder kickerBuilder;
-        final Visualization scene;
+	final Visualization scene;
 
 	public QuckPickAction(Visualization scene, MainForm form, KickerBuilder kb) {
 		this.kickerBuilder = kb;
 		this.form = form;
-                this.scene = scene;
+		this.scene = scene;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
-		
+
 		if (actionEvent.getSource() == form.ckBoxLongest) {
-			System.out.println("Check Box One Picked:");
 			showLongestKick();
 		} else if (actionEvent.getSource() == form.ckBoxAverage) {
-			System.out.println("Check Box 2 Picked:");
 			showAvgKick();
 		} else if (actionEvent.getSource() == form.ckBoxShortest) {
-			System.out.println("Check Box 3 Picked:");
 			showShortKick();
+		} else if (actionEvent.getSource() == form.rdBtnBest) {
+			showHighestFgPlayer();
+		}  else if (actionEvent.getSource() == form.rdBtnLongest) {
+			showLongestKickPlayer();
+		} else if (actionEvent.getSource() == form.rdBtnPoints) {
+			showHighestPointPlayer();
 		}
-		
-		findHighestPointPlayer();
-		findLongestKickPlayer();
-		
+
 	}
-	
+
 	public void showLongestKick() {
 		System.out.println("Longest FG: "+kickerBuilder.getLongestFg());
-                scene.enableLongest((float )kickerBuilder.getLongestFg());
+		scene.enableLongest((float )kickerBuilder.getLongestFg());
 	}
-	
+
 	public void showAvgKick() {
 		System.out.println("Avg FG: "+kickerBuilder.getAvgFg());
-                scene.enableAverage((float) kickerBuilder.getAvgFg());
+		scene.enableAverage((float) kickerBuilder.getAvgFg());
 	}
-	
+
 	public void showShortKick() {
 		System.out.println("Shortest FG: "+kickerBuilder.getShortestFg());
-                scene.enableShortest((float) kickerBuilder.getShortestFg());
+		scene.enableShortest((float) kickerBuilder.getShortestFg());
 	}
-	
-	public void findHighestPointPlayer() {
+
+	public void showHighestPointPlayer() {
 		Kicker highPtKicker = kickerBuilder.getPlayerHighestPoints();
-		System.out.println("Highest Player: "+highPtKicker.getPlayerName());
-		System.out.println("Highest Points: "+highPtKicker.getPoints());
+		setQuickSearchPlayer(highPtKicker);
+	}
+
+	public void showLongestKickPlayer() {
+		Kicker longestKicker = kickerBuilder.getPlayerLongestKick();
+		setQuickSearchPlayer(longestKicker);
+	}
+
+	public void showHighestFgPlayer() {
+		Kicker highestFgKicker = kickerBuilder.getPlayerHighestFgPct();
+		setQuickSearchPlayer(highestFgKicker);
 	}
 	
-	public void findLongestKickPlayer() {
-		Kicker longestKicker = kickerBuilder.getPlayerLongestKick();
-		System.out.println("Longest Kick Player: "+longestKicker.getPlayerName());
-		System.out.println("Longest Kick : "+longestKicker.getLongestFieldGoal());
+	public void setQuickSearchPlayer(Kicker kicker) {
+        form.cmbRedKicker.setSelectedItem(kicker.getPlayerName());  
 	}
 
 }

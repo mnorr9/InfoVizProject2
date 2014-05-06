@@ -239,4 +239,22 @@ public class KickerBuilder
 		return kicker;
 	}
 
+	/**
+	 * Getter to retrieve the player with the highest FG percentage
+	 * 
+	 * @return Kicker
+	 */
+	public Kicker getPlayerHighestFgPct() {
+		double highestFgPct = getKicker(0).getFieldGoalPercentage();
+
+		Kicker kicker = getKicker(0);
+		for(int i=0; i<getNumOfKickers(); i++) {
+			if(highestFgPct < getKicker(i).getFieldGoalPercentage()) {
+				highestFgPct = getKicker(i).getFieldGoalPercentage();
+				kicker = getKicker(i);
+			}
+		}
+		return kicker;
+	}
+
 }

@@ -56,6 +56,11 @@ public class AppLauncher {
         form.ckBoxAverage.addActionListener(new QuckPickAction(scene, form, kb));
         form.ckBoxShortest.addActionListener(new QuckPickAction(scene, form, kb));
         
+        // Radio Button Setting
+        form.rdBtnBest.addActionListener(new QuckPickAction(scene, form, kb));
+        form.rdBtnLongest.addActionListener(new QuckPickAction(scene, form, kb));
+        form.rdBtnPoints.addActionListener(new QuckPickAction(scene, form, kb));
+        
         form.setVisible(true);
         form.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
