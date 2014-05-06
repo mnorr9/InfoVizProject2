@@ -10,7 +10,7 @@ import java.util.prefs.Preferences;
 /**
  * This is the application entry point. In addition, it is in charge of 
  * instantiating different parts of the application. 
- * @author Nacer Abreu, David Gwalthney
+ * @author Nacer Abreu, David Gwalthney, Emmanuel Bonilla
  */
 public class AppLauncher {
     
@@ -38,7 +38,11 @@ public class AppLauncher {
               new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
 
         KickerAction kickerAction = new KickerAction(scene, kb, form);
+        form.cmbRedKicker.insertItemAt("....", 0);
+        form.cmbRedKicker.setSelectedIndex(0);
         form.cmbRedKicker.addItemListener(kickerAction);
+        form.cmbBlueKicker.insertItemAt("....", 0);
+        form.cmbBlueKicker.setSelectedIndex(0);
         form.cmbBlueKicker.addItemListener(kickerAction);
         
         OpenAction openAction = new OpenAction(form, kb);
