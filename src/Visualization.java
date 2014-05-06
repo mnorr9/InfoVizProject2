@@ -180,7 +180,7 @@ public class Visualization implements GLEventListener, KeyListener{
         }
         
         if (x_red_coord >= x_red_animated_coord){
-            x_red_animated_coord += 0.008;
+            x_red_animated_coord += 0.09;
         }
         
         gl.glPushMatrix();
@@ -216,7 +216,7 @@ public class Visualization implements GLEventListener, KeyListener{
         }
         
         if (x_blue_coord >= x_blue_animated_coord){
-            x_blue_animated_coord += 0.008;
+            x_blue_animated_coord += 0.09;
         }
         gl.glPushMatrix();
             gl.glTranslatef(x, y, 0.0f);
