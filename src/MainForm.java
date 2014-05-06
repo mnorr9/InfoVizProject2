@@ -209,7 +209,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Test"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Fiield Goals"));
 
         ckBoxLongest.setText(" Longest Field Goal");
 
