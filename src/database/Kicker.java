@@ -17,7 +17,7 @@ public class Kicker extends Player
   private double extra_points_made;
   private double extra_point_attempts;
   private double extra_point_percentage;
-  private double extra_point_points;
+  private double points;
   private static final String splitBy = "-";
 
   /**
@@ -72,7 +72,7 @@ public class Kicker extends Player
     extra_points_made             = Double.parseDouble(stat_field[12]);
     extra_point_attempts          = Double.parseDouble(stat_field[13]);
     extra_point_percentage        = Double.parseDouble(stat_field[14]);
-    extra_point_points            = Double.parseDouble(stat_field[15]);
+    points            			  = Double.parseDouble(stat_field[15]);
   }
 
   /**
@@ -257,13 +257,14 @@ public class Kicker extends Player
   }
 
   /**
-   *   Getter to retrieve the kickers extra point points.
+   *   Getter to retrieve the kickers number of points.
    *
    *   @return double
    */
-  public double getExtraPointPoints()
+  public double getPoints()
   {
-    return extra_point_points;
+    return points;
   }
+  
   
 }
