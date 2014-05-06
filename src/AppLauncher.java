@@ -44,6 +44,9 @@ public class AppLauncher {
         OpenAction openAction = new OpenAction(form, kb);
         form.mnItemOpen.addActionListener(openAction);
         
+        // Exit
+        form.mnItemExit.addActionListener(new ExitAction());
+        
         form.setVisible(true);
         form.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
