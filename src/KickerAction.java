@@ -86,8 +86,8 @@ public class KickerAction implements ItemListener{
 
             if ((name == "...." && redFGP==0) &&
             	(name == "...." && blueFGP==0)) {
-                	form.txtLongestFieldGoal.setText("");
-                    form.txtBestFieldGoalPercentage.setText("");
+//                	form.txtLongestFieldGoal.setText("");
+//                    form.txtBestFieldGoalPercentage.setText("");
             } else {
             	determineLongestFieldGoal();
             	determineBestFieldGoalPercentage();
