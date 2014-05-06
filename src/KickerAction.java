@@ -85,17 +85,17 @@ public class KickerAction implements ItemListener{
         if (this.redLongestFieldGoal > this.blueLongestFieldGoal) {
             String kicker = form.cmbRedKicker.getSelectedItem().toString();
             String[] name = kicker.split(" ");
-            form.txtLongestFieldGoal.setText(name[1]);
+//            form.txtLongestFieldGoal.setText(name[1]);
         }
 
         if (this.redLongestFieldGoal < this.blueLongestFieldGoal) {
             String kicker = form.cmbBlueKicker.getSelectedItem().toString();
             String[] name = kicker.split(" ");
-            form.txtLongestFieldGoal.setText(name[1]);
+//            form.txtLongestFieldGoal.setText(name[1]);
         }
 
         if (this.redLongestFieldGoal == this.blueLongestFieldGoal) {
-            form.txtLongestFieldGoal.setText("SAME");
+//            form.txtLongestFieldGoal.setText("SAME");
         }
     }//end of determineLongestFieldGoal()
 
@@ -109,19 +109,19 @@ public class KickerAction implements ItemListener{
     private void determineBestFieldGoalPercentage() {
 
         if (redFGP == blueFGP) {
-            form.txtBestFieldGoalPercentage.setText("SAME");
+//            form.txtBestFieldGoalPercentage.setText("SAME");
         }
 
         if (redFGP > blueFGP) {
             String kicker = form.cmbRedKicker.getSelectedItem().toString();
             String[] name = kicker.split(" ");
-            form.txtBestFieldGoalPercentage.setText(name[1]);            
+//            form.txtBestFieldGoalPercentage.setText(name[1]);            
         }
 
         if (redFGP < blueFGP) {
             String kicker = form.cmbBlueKicker.getSelectedItem().toString();
             String[] name = kicker.split(" ");
-            form.txtBestFieldGoalPercentage.setText(name[1]);
+//            form.txtBestFieldGoalPercentage.setText(name[1]);
             
         }
 
