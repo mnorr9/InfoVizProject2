@@ -54,7 +54,14 @@ public class Visualization implements GLEventListener, KeyListener{
     private float redWidth;
     private float x_red_animated_coord;
     private float x_blue_animated_coord;
-
+    private boolean isLongestEnable;
+    private float longestFG;
+    private boolean isShortestEnable;
+    private float shortestFG;
+    private boolean isAverageEnable;
+    private float averageFG; 
+    
+    
     /**
      * Constructor.
      */
@@ -66,6 +73,15 @@ public class Visualization implements GLEventListener, KeyListener{
         redWidth = 0f;
         x_red_animated_coord = 0.0f;
         x_blue_animated_coord = 0.0f;
+        
+        this.longestFG = 0f;
+        this.isLongestEnable = false;
+        
+        this.shortestFG = 0f;
+        this.isShortestEnable = false;
+        
+        this.averageFG = 0f;
+        this.isAverageEnable = false;
         
         // Construct an FPS animator, which drives drawable's display() at the 
         // specified frames per second
@@ -135,10 +151,93 @@ public class Visualization implements GLEventListener, KeyListener{
             drawField(gl);
             drawRedBar(gl);
             drawBlueBar(gl);
+            drawLongestFG(gl);
+            drawShortestFG(gl);
+            drawAverageFG(gl);
         gl.glPopMatrix();
         gl.glFlush();    
         
     }//end of display()
+    
+    
+    private float calculateXCoord(float yards){
+        
+        return (float) ((0.39f * yards) / 5.0f);
+    }// end of calculateXCoord();
+    
+    public void enableLongest(float x){
+        if(isLongestEnable){
+            this.isLongestEnable = false;
+        }else{
+            this.longestFG = calculateXCoord(x);
+            this.isLongestEnable = true;
+        }
+    }// end of enableLongest()
+
+    
+    public void enableShortest(float x){
+        if(isShortestEnable){
+            this.isShortestEnable = false;
+        }else{
+            this.shortestFG = calculateXCoord(x);
+            this.isShortestEnable = true;
+        }
+    }// end of enableShortest()    
+    
+    public void enableAverage(float x){
+        if(isAverageEnable){
+            this.isAverageEnable = false;
+        }else{
+            this.averageFG = calculateXCoord(x);
+            this.isAverageEnable = true;
+        }
+    }// end of enableShortest()     
+    
+    
+    private void drawLongestFG(GL gl) {
+    
+        if (isLongestEnable){
+            gl.glPushMatrix();
+                 gl.glTranslatef(-4.965f, 0.0f, 0.0f);
+                 gl.glColor3f(0.0f, 1.0f, 0.0f); // Green
+                 gl.glLineWidth(4.0f);
+                gl.glBegin(GL.GL_LINES);
+                    gl.glVertex3f( longestFG,   4.0f, 0.0f);
+                    gl.glVertex3f( longestFG,  -3.5f, 0.0f);
+                gl.glEnd();
+            gl.glPopMatrix();
+        }
+    }//End of drawLongestFG()
+    
+    private void drawShortestFG(GL gl) {
+        
+        if (isShortestEnable){
+            gl.glPushMatrix();
+                 gl.glTranslatef(-4.965f, 0.0f, 0.0f);
+                 gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
+                 gl.glLineWidth(4.0f);
+                gl.glBegin(GL.GL_LINES);
+                    gl.glVertex3f( shortestFG,   4.0f, 0.0f);
+                    gl.glVertex3f( shortestFG,  -3.5f, 0.0f);
+                gl.glEnd();
+            gl.glPopMatrix();
+        }
+    }//End of drawShortestFG()
+    
+    private void drawAverageFG(GL gl) {
+        
+        if (isAverageEnable){
+            gl.glPushMatrix();
+                 gl.glTranslatef(-4.965f, 0.0f, 0.0f);
+                 gl.glColor3f(1.5f, 1.0f, 0.5f); // White
+                 gl.glLineWidth(4.0f);
+                gl.glBegin(GL.GL_LINES);
+                    gl.glVertex3f( averageFG,   4.0f, 0.0f);
+                    gl.glVertex3f( averageFG,  -3.5f, 0.0f);
+                gl.glEnd();
+            gl.glPopMatrix();
+        }
+    }//End of drawAverageFG()    
     
     /**
     * This function draws a rectangle and applies the a GL_TEXTURE_2D to it.
@@ -184,7 +283,7 @@ public class Visualization implements GLEventListener, KeyListener{
         }
         
         gl.glPushMatrix();
-            gl.glTranslatef(x, y, 0.0f);
+            gl.glTranslatef(x, y, -0.1f);
             gl.glColor3f(1.0f, 0.0f, 0.0f); // Red
             gl.glBegin(GL.GL_QUADS);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
@@ -219,7 +318,7 @@ public class Visualization implements GLEventListener, KeyListener{
             x_blue_animated_coord += 0.09;
         }
         gl.glPushMatrix();
-            gl.glTranslatef(x, y, 0.0f);
+            gl.glTranslatef(x, y, -0.1f);
             gl.glColor3f(0.0f, 0.0f, 1.0f); // Blue
             gl.glBegin(GL.GL_QUADS);
                 gl.glVertex3f(0.0f, 0.0f, 0.0f);
@@ -250,7 +349,7 @@ public class Visualization implements GLEventListener, KeyListener{
         int triangleAmount = 20; //# of triangles used to draw circle
 
         gl.glPushMatrix();
-            gl.glTranslatef(x, y, 0.0f);
+            gl.glTranslatef(x, y, -0.1f);
             gl.glColor3f(0.0f, 1.0f, 1.0f); // Blue
             gl.glBegin(GL.GL_TRIANGLE_FAN);
                 gl.glVertex2f(x_circle, y_circle); // center of circle

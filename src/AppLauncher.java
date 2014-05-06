@@ -52,9 +52,9 @@ public class AppLauncher {
         form.mnItemExit.addActionListener(new ExitAction());
         
 	    // CheckBox Setting
-        form.ckBoxLongest.addActionListener(new QuckPickAction(form, kb));
-        form.ckBoxAverage.addActionListener(new QuckPickAction(form, kb));
-        form.ckBoxShortest.addActionListener(new QuckPickAction(form, kb));
+        form.ckBoxLongest.addActionListener(new QuckPickAction(scene, form, kb));
+        form.ckBoxAverage.addActionListener(new QuckPickAction(scene, form, kb));
+        form.ckBoxShortest.addActionListener(new QuckPickAction(scene, form, kb));
         
         form.setVisible(true);
         form.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

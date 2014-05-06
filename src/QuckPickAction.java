@@ -10,10 +10,12 @@ public class QuckPickAction implements ActionListener {
 	
 	final MainForm form;
 	final KickerBuilder kickerBuilder;
+        final Visualization scene;
 
-	public QuckPickAction(MainForm form, KickerBuilder kb) {
+	public QuckPickAction(Visualization scene, MainForm form, KickerBuilder kb) {
 		this.kickerBuilder = kb;
 		this.form = form;
+                this.scene = scene;
 	}
 
 	@Override
@@ -37,14 +39,17 @@ public class QuckPickAction implements ActionListener {
 	
 	public void showLongestKick() {
 		System.out.println("Longest FG: "+kickerBuilder.getLongestFg());
+                scene.enableLongest((float )kickerBuilder.getLongestFg());
 	}
 	
 	public void showAvgKick() {
 		System.out.println("Avg FG: "+kickerBuilder.getAvgFg());
+                scene.enableAverage((float) kickerBuilder.getAvgFg());
 	}
 	
 	public void showShortKick() {
 		System.out.println("Shortest FG: "+kickerBuilder.getShortestFg());
+                scene.enableShortest((float) kickerBuilder.getShortestFg());
 	}
 	
 	public void findHighestPointPlayer() {
