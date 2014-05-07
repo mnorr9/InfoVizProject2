@@ -10,7 +10,7 @@ import java.util.prefs.Preferences;
 /**
  * This is the application entry point. In addition, it is in charge of 
  * instantiating different parts of the application. 
- * @author Nacer Abreu, David Gwalthney, Emmanuel Bonilla
+ * @author Nacer Abreu, David Gwalthney, Emmanuel Bonilla, Michael Norris
  */
 public class AppLauncher {
     
