@@ -159,41 +159,64 @@ public class Visualization implements GLEventListener, KeyListener{
         
     }//end of display()
     
-    
+    /**
+     * This function calculates the approximate x coordinate for the specified 
+     * numbers of yards supplied.
+     * @param yards The number of yards to convert to x coordinates
+     * @return float The return value is the x coordinate  
+     */
     private float calculateXCoord(float yards){
         
         return (float) ((0.39f * yards) / 5.0f);
+        
     }// end of calculateXCoord();
     
-    public void enableLongest(float x){
+    /**
+     * This function enables a parallel bar that represents the longest field 
+     * goal kick.
+     * @param yards The humber of yards for the longest kick.
+     */
+    public void enableLongest(float yards){
         if(isLongestEnable){
             this.isLongestEnable = false;
         }else{
-            this.longestFG = calculateXCoord(x);
+            this.longestFG = calculateXCoord(yards);
             this.isLongestEnable = true;
         }
     }// end of enableLongest()
 
-    
-    public void enableShortest(float x){
+    /**
+     * This function enables a parallel bar that represents the shortest field 
+     * goal kick.
+     * @param yards The number of yards for the shortest kick.
+     */
+    public void enableShortest(float yards){
         if(isShortestEnable){
             this.isShortestEnable = false;
         }else{
-            this.shortestFG = calculateXCoord(x);
+            this.shortestFG = calculateXCoord(yards);
             this.isShortestEnable = true;
         }
     }// end of enableShortest()    
     
-    public void enableAverage(float x){
+    /**
+     * This function enables a parallel bar that represents the average field 
+     * goal kick.
+     * @param yards The number of yards for the average kick.
+     */
+    public void enableAverage(float yards){
         if(isAverageEnable){
             this.isAverageEnable = false;
         }else{
-            this.averageFG = calculateXCoord(x);
+            this.averageFG = calculateXCoord(yards);
             this.isAverageEnable = true;
         }
     }// end of enableShortest()     
     
-    
+    /**
+     * This function draws draws a vertical bar representing the longest FG.
+     * @param gl 
+     */
     private void drawLongestFG(GL gl) {
     
         if (isLongestEnable){
@@ -209,6 +232,10 @@ public class Visualization implements GLEventListener, KeyListener{
         }
     }//End of drawLongestFG()
     
+    /**
+     * This function draws draws a vertical bar representing the shortest FG.
+     * @param gl 
+     */
     private void drawShortestFG(GL gl) {
         
         if (isShortestEnable){
@@ -224,6 +251,10 @@ public class Visualization implements GLEventListener, KeyListener{
         }
     }//End of drawShortestFG()
     
+    /**
+     * This function draws draws a vertical bar representing the average FG.
+     * @param gl 
+     */
     private void drawAverageFG(GL gl) {
         
         if (isAverageEnable){
@@ -455,16 +486,11 @@ public class Visualization implements GLEventListener, KeyListener{
         if ((ke.getKeyCode() == KeyEvent.VK_DOWN)
                 && ((ke.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             // Moves DOWNWARD on xz plane
-// if (camera_y >= 0.5) // Do not allow to go beneath 'x_circle' plane
-// {
                 camera_y -= 0.5;
-// }
         } else if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
             // Moves BACKWARDS on xz plane
-            // if (camera_z > (sceneBoundary_z * -1)) {
             camera_z -= 0.1;
             center_z -= 0.1;
-            // }
         }
 
         if ((ke.getKeyCode() == KeyEvent.VK_LEFT)
@@ -478,10 +504,8 @@ public class Visualization implements GLEventListener, KeyListener{
 
         } else if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
             // Moves camera to the LEFT on the xz plane
-            //if (camera_x < sceneBoundary_x) {
             camera_x += 0.1;
             center_x += 0.1;
-            // }
         }
 
         if ((ke.getKeyCode() == KeyEvent.VK_RIGHT)
@@ -494,10 +518,8 @@ public class Visualization implements GLEventListener, KeyListener{
             }
         } else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
             // Moves camera to the RIGHT on the xz plane
-            //if (camera_x > (sceneBoundary_x * -1) ) {
             camera_x -= 0.1;
             center_x -= 0.1;
-            //}
         }
         
        // Resets Camera's glu.gluLookAt parameters
