@@ -10,7 +10,7 @@ import java.awt.Color;
  * This class is an implementation of the ItemListenerClass. It is used to 
  * listen for events from the JComboBoxes in MainForm.  
  * 
- * @author Nacer Abreu, Emmanuel Bonilla
+ * @author Nacer Abreu, Emmanuel Bonilla, Michael Norris
  */
 public class KickerAction implements ItemListener{
     private final Visualization scene;
@@ -62,9 +62,8 @@ public class KickerAction implements ItemListener{
                 String attempts = Double.toString(kb.getKicker(name).getFieldGoalAttempts());
                 form.txtRedGamesPlayed.setText(attempts);
                 redLongestFieldGoal = (float) longestFieldGoal;
-                if (form.btnGrpPlayers.isSelected(null)){
-                    form.btnGrpPlayers.clearSelection();
-                }
+                form.btnGrpPlayers.clearSelection();
+
             }// Red Kicker
             
             if (event.getSource() == form.cmbBlueKicker && name == "....") {
@@ -86,6 +85,7 @@ public class KickerAction implements ItemListener{
                 String attempts = Double.toString(kb.getKicker(name).getFieldGoalAttempts());
                 form.txtBlueGamesPlayed.setText(attempts);
                 blueLongestFieldGoal = (float) longestFieldGoal;
+                form.btnGrpPlayers.clearSelection();
             }// Blue Kicker
 
             if ((name == "...." && redFGP==0) &&

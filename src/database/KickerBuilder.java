@@ -16,7 +16,7 @@ import java.util.Collections;
  *   Contains all kickers that have been read in.
  *   Class is a database of all kickers.
  * 
- *   @author David
+ *   @author David, Mike Norris
  */
 public class KickerBuilder
 {

@@ -1,6 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonModel;
+
 import database.Kicker;
 import database.KickerBuilder;
 
@@ -68,7 +70,12 @@ public class QuckPickAction implements ActionListener {
 	}
 	
 	public void setQuickSearchPlayer(Kicker kicker) {
-        form.cmbRedKicker.setSelectedItem(kicker.getPlayerName());  
+		form.cmbBlueKicker.setSelectedIndex(0);
+		// get selected item
+		ButtonModel bm = form.btnGrpPlayers.getSelection();
+        form.cmbRedKicker.setSelectedItem(kicker.getPlayerName());
+        //set select Item
+        form.btnGrpPlayers.setSelected(bm, true);
 	}
 
 }
