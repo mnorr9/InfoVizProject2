@@ -3,12 +3,14 @@
 
 
 import database.KickerBuilder;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
+
 import javax.swing.JFileChooser;
 
 /**
@@ -52,6 +54,12 @@ public class OpenAction implements ActionListener{
             kb.buildKickerDatabase(file.getAbsolutePath());
             form.cmbRedKicker.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
             form.cmbBlueKicker.setModel(new javax.swing.DefaultComboBoxModel(kb.getNameList().toArray()));
+            
+            form.cmbRedKicker.insertItemAt("....", 0);
+            form.cmbRedKicker.setSelectedIndex(0);
+            form.cmbBlueKicker.insertItemAt("....", 0);
+            form.cmbBlueKicker.setSelectedIndex(0);
+            
             myPrefs.put("dbFile", file.getAbsolutePath());
             myPrefs.put("dbDir", file.getPath());
             log = ("Opening: " + file.getAbsolutePath() + "." + "\n");
