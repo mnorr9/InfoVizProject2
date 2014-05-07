@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -548,7 +549,8 @@ public class Visualization implements GLEventListener, KeyListener{
     private void loadTexture(String fileName, GL gl) {
         img = null;
         try {
-            img = ImageIO.read(new File(fileName));
+        	URL fileURL = this.getClass().getResource("resources/American_Football_field.png");  
+            img = ImageIO.read(fileURL);
             texture = TextureIO.newTexture(img, true);
         } catch (Exception ex) {
             Logger.getLogger(Visualization.class.getName()).log(Level.SEVERE, null, ex);
