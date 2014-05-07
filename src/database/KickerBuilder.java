@@ -15,7 +15,7 @@ import java.util.Collections;
  *   Contains all kickers that have been read in.
  *   Class is a database of all kickers.
  * 
- *   @author David, Mike Norris
+ *   @author David Gwalthney, Mike Norris
  */
 public class KickerBuilder
 {
@@ -39,7 +39,8 @@ public class KickerBuilder
 	 *   parse the line and then create a kicker with that
 	 *   data.
 	 *   
-	 *   @param csvFileToRead
+	 *   @param csvFileToRead. This is the comma delimited file containing 
+         *   the players statistics.
 	 */
 	public void buildKickerDatabase(String csvFileToRead)
 	{
@@ -133,7 +134,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the number of kickers.
 	 * 
-	 *   @return The number of total kickers in the application as an int.
+	 *   @return int. The number of total kickers in the application as an int.
 	 */
 	public int getNumOfKickers()
 	{
@@ -159,7 +160,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the Player ID with the highest number of points.
 	 * 
-	 *   @return A kicker object of the player with the highest points.
+	 *   @return Kicker. A kicker object of the player with the highest points.
 	 */
 	public Kicker getPlayerHighestPoints() {
 
@@ -178,7 +179,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the longest field goal of all kickers.
 	 * 
-	 *   @return The longest field goal as a double.
+	 *   @return double. The longest field goal as a double.
 	 */
 	public double getLongestFg() {
 
@@ -194,7 +195,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the average field goal of all kickers.
 	 * 
-	 *   @return The average field goal as an int.
+	 *   @return int. The average field goal as an int.
 	 */
 	public int getAvgFg() {
 
@@ -208,7 +209,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the shortest field goal of all kickers.
 	 * 
-	 *   @return The shortest field goal as an int
+	 *   @return int. The shortest field goal as an int
 	 */
 	public double getShortestFg() {
 		double shortestFg = getKicker(0).getLongestFieldGoal();
@@ -223,7 +224,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the player with the longest  kick
 	 * 
-	 *   @return A Kicker Object of the player with the longest field kick.
+	 *   @return Kicker. A Kicker Object of the player with the longest field kick.
 	 */
 	public Kicker getPlayerLongestKick() {
 		double longestKick = getKicker(0).getLongestFieldGoal();
@@ -241,7 +242,7 @@ public class KickerBuilder
 	/**
 	 * Getter to retrieve the player with the highest FG percentage
 	 * 
-	 * @return A Kicker Object with the player with the highest Field Goal 
+	 * @return Kicker. A Kicker Object with the player with the highest Field Goal 
          * Percentage.
 	 */
 	public Kicker getPlayerHighestFgPct() {

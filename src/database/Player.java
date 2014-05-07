@@ -5,7 +5,7 @@ package database;
  *   Contains all necessary fields that are common
  *   between all NFL players.
  * 
- *   @author David
+ *   @author David Gwalthney
  */
 public class Player
 {
@@ -30,7 +30,7 @@ public class Player
   /**
    *   Getter to retrieve the Players name.
    *    
-   *   @return The name of the player as a String.
+   *   @return String. The name of the player as a String.
    */
   public String getPlayerName()
   {
@@ -41,7 +41,7 @@ public class Player
    *   Getter to retrieve the Team name that the 
    *   Player plays for.
    *    
-   *   @return The name of the team as a String.
+   *   @return String. The name of the team as a String.
    */
   public String getTeamName()
   {
@@ -52,7 +52,7 @@ public class Player
    *   Getter to retrieve the number of games the
    *   player has played that season.
    *    
-   *   @return The number of games played by the player as a double.
+   *   @return double. The number of games played by the player as a double.
    */
   public double getNumberOfGamesPlayed()
   {
@@ -63,7 +63,7 @@ public class Player
    *   Getter to retrieve the number of fumbles a
    *   player had.
    *    
-   *   @return The number of fumbles by the player as a double
+   *   @return double. The number of fumbles by the player as a double
    */
   public double getNumberOfFumbles()
   {
@@ -74,7 +74,7 @@ public class Player
    *   Getter to retrieve the number of fumbles a
    *   player has lost.
    *    
-   *   @return The number of fumbles lost by the player as a double.
+   *   @return double. The number of fumbles lost by the player as a double.
    */
   public double getNumberOfFumblesLost()
   {
