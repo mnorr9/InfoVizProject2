@@ -41,7 +41,7 @@ public class Kicker extends Player
    *   the class. Current design needs the string to match
    *   up perfectly in the right order.
    *   
-   *   @param stat_field
+   *   @param A String array containing all data for a particular player.
    */
   public void createKicker(String[] stat_field)
   {
@@ -79,7 +79,8 @@ public class Kicker extends Player
    *   Getter to retrieve the number of field goals made
    *   between 10 and 19 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals successfully executed by this player
+   *   from the 10th to the 19th yard as a double
    */
   public double get10To19FieldGoalsMade()
   {
@@ -90,7 +91,8 @@ public class Kicker extends Player
    *   Getter to retrieve the number of field goal attempts
    *   between 10 and 19 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals attempted by this player
+   *   from the 10th to the 19th yard as a double
    */
   public double get10To19FieldGoalsAttempted()
   {
@@ -101,7 +103,8 @@ public class Kicker extends Player
    *   Getter to retrieve the number of field goals made
    *   between 20 and 29 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals successfully executed by this player
+   *   from the 20th to the 29th yard as a double
    */
   public double get20To29FieldGoalsMade()
   {
@@ -112,7 +115,8 @@ public class Kicker extends Player
    *   Getter to retrieve the number of field goal attempts
    *   between 20 and 29 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals attempted by this player
+   *   from the 20th to the 29th yard as a double
    */
   public double get20To29FieldGoalsAttempted()
   {
@@ -123,7 +127,8 @@ public class Kicker extends Player
    *   Getter to retrieve the number of field goals made
    *   between 30 and 39 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals successfully executed by this player
+   *   from the 30th to the 39th yard as a double
    */
   public double get30To39FieldGoalsMade()
   {
@@ -134,7 +139,8 @@ public class Kicker extends Player
    *   Getter to retrieve the number of field goal attempts
    *   between 30 and 39 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals attempted by this player
+   *   from the 30th to the 39th yard as a double
    */
   public double get30To39FieldGoalsAttempted()
   {
@@ -145,7 +151,8 @@ public class Kicker extends Player
    *   Getter to retrieve the number of field goals made
    *   between 40 and 49 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals successfully executed by this player
+   *   from the 40th to the 49th yard as a double
    */
   public double get40To49FieldGoalsMade()
   {
@@ -156,7 +163,8 @@ public class Kicker extends Player
    *   Getter to retrieve the number of field goal attempts
    *   between 40 and 49 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals attempted by this player
+   *   from the 40th to the 49th yard as a double
    */
   public double get40To49FieldGoalsAttempted()
   {
@@ -167,7 +175,8 @@ public class Kicker extends Player
    *   Getter to retrieve the number of field goals made
    *   from 50+ yards.
    *    
-   *   @return double
+   *   @return The number of fields goals successfully executed by this player
+   *   from the 50th yards and below as a double
    */
   public double get50PlusFieldGoalsMade()
   {
@@ -178,7 +187,8 @@ public class Kicker extends Player
    *   Getter to retrieve the number of field goal attempts
    *   from 50+ yards.
    *    
-   *   @return double
+   *   @return The number of fields goals attempted by this player
+   *   from the 50th yards and above as a double
    */
   public double get50PlusFieldGoalsAttempted()
   {
@@ -188,7 +198,7 @@ public class Kicker extends Player
   /**
    *   Getter to retrieve the number of field goals made.
    *
-   *   @return double
+   *   @return The field goals made by this player as a double
    */
   public double getFieldGoalsMade()
   {
@@ -198,7 +208,7 @@ public class Kicker extends Player
   /**
    *   Getter to retrieve the number of field goal attempts.
    *
-   *   @return double
+   *   @return The field goals attempted by this player as a double
    */
   public double getFieldGoalAttempts()
   {
@@ -208,7 +218,7 @@ public class Kicker extends Player
   /**
    *   Getter to retrieve the kickers field goal percentage.
    *
-   *   @return double
+   *   @return The field goal percentage by this player as a double
    */
   public double getFieldGoalPercentage()
   {
@@ -219,7 +229,7 @@ public class Kicker extends Player
    *   Getter to retrieve the kickers longest field
    *   goal made.
    *
-   *   @return double
+   *   @return The longest field goal by this player as a double
    */
   public double getLongestFieldGoal()
   {
@@ -229,7 +239,7 @@ public class Kicker extends Player
   /**
    *   Getter to retrieve the number of extra points made.
    *
-   *   @return double
+   *   @return The extra points made by this player as a double
    */
   public double getExtraPointsMade()
   {
@@ -239,7 +249,7 @@ public class Kicker extends Player
   /**
    *   Getter to retrieve the number of extra point attempts.
    *
-   *   @return double
+   *   @return The extra points attempts by this player as a double
    */
   public double getExtraPointAttempts()
   {
@@ -249,7 +259,7 @@ public class Kicker extends Player
   /**
    *   Getter to retrieve the kickers extra point percentage.
    *
-   *   @return double
+   *   @return The extra point percentage as a double
    */
   public double getExtraPointPercentage()
   {
@@ -259,7 +269,7 @@ public class Kicker extends Player
   /**
    *   Getter to retrieve the kickers number of points.
    *
-   *   @return double
+   *   @return The number of points by this player as a double
    */
   public double getPoints()
   {

@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;  
 import java.io.IOException;
 
-import database.Kicker;
 import java.util.Collections;
 
 
@@ -134,7 +133,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the number of kickers.
 	 * 
-	 *   @return int
+	 *   @return The number of total kickers in the application as an int.
 	 */
 	public int getNumOfKickers()
 	{
@@ -160,7 +159,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the Player ID with the highest number of points.
 	 * 
-	 *   @return int
+	 *   @return A kicker object of the player with the highest points.
 	 */
 	public Kicker getPlayerHighestPoints() {
 
@@ -179,7 +178,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the longest field goal of all kickers.
 	 * 
-	 *   @return int
+	 *   @return The longest field goal as a double.
 	 */
 	public double getLongestFg() {
 
@@ -195,7 +194,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the average field goal of all kickers.
 	 * 
-	 *   @return int
+	 *   @return The average field goal as an int.
 	 */
 	public int getAvgFg() {
 
@@ -209,7 +208,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the shortest field goal of all kickers.
 	 * 
-	 *   @return int
+	 *   @return The shortest field goal as an int
 	 */
 	public double getShortestFg() {
 		double shortestFg = getKicker(0).getLongestFieldGoal();
@@ -224,7 +223,7 @@ public class KickerBuilder
 	/**
 	 *   Getter to retrieve the player with the longest  kick
 	 * 
-	 *   @return Kicker
+	 *   @return A Kicker Object of the player with the longest field kick.
 	 */
 	public Kicker getPlayerLongestKick() {
 		double longestKick = getKicker(0).getLongestFieldGoal();
@@ -242,7 +241,8 @@ public class KickerBuilder
 	/**
 	 * Getter to retrieve the player with the highest FG percentage
 	 * 
-	 * @return Kicker
+	 * @return A Kicker Object with the player with the highest Field Goal 
+         * Percentage.
 	 */
 	public Kicker getPlayerHighestFgPct() {
 		double highestFgPct = getKicker(0).getFieldGoalPercentage();

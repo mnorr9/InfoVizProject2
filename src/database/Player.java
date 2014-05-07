@@ -30,7 +30,7 @@ public class Player
   /**
    *   Getter to retrieve the Players name.
    *    
-   *   @return String
+   *   @return The name of the player as a String.
    */
   public String getPlayerName()
   {
@@ -41,7 +41,7 @@ public class Player
    *   Getter to retrieve the Team name that the 
    *   Player plays for.
    *    
-   *   @return String
+   *   @return The name of the team as a String.
    */
   public String getTeamName()
   {
@@ -52,7 +52,7 @@ public class Player
    *   Getter to retrieve the number of games the
    *   player has played that season.
    *    
-   *   @return double
+   *   @return The number of games played by the player as a double.
    */
   public double getNumberOfGamesPlayed()
   {
@@ -63,7 +63,7 @@ public class Player
    *   Getter to retrieve the number of fumbles a
    *   player had.
    *    
-   *   @return double
+   *   @return The number of fumbles by the player as a double
    */
   public double getNumberOfFumbles()
   {
@@ -74,7 +74,7 @@ public class Player
    *   Getter to retrieve the number of fumbles a
    *   player has lost.
    *    
-   *   @return double
+   *   @return The number of fumbles lost by the player as a double.
    */
   public double getNumberOfFumblesLost()
   {

@@ -27,7 +27,8 @@ public class FGDistanceStats
    *   Getter to retrieve the number of field goals made
    *   between 10 and 19 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals successfully executed by this player
+   *   from the 10th to the 19th yard as a double 
    */
   public double get10To19FieldGoals()
   {
@@ -38,7 +39,8 @@ public class FGDistanceStats
    *   Getter to retrieve the number of field goals made
    *   between 20 and 29 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals successfully executed by this player
+   *   from the 20th to the 29th yard as a double 
    */
   public double get20To29FieldGoals()
   {
@@ -49,7 +51,8 @@ public class FGDistanceStats
    *   Getter to retrieve the number of field goals made
    *   between 30 and 39 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals successfully executed by this player
+   *   from the 30th to the 39th yard as a double 
    */
   public double get30To39FieldGoals()
   {
@@ -60,7 +63,8 @@ public class FGDistanceStats
    *   Getter to retrieve the number of field goals made
    *   between 40 and 49 yards.
    *    
-   *   @return double
+   *   @return The number of fields goals successfully executed by this player
+   *   from the 40th to the 49th yard as a double 
    */
   public double get40To49FieldGoals()
   {
@@ -71,7 +75,8 @@ public class FGDistanceStats
    *   Getter to retrieve the number of field goals made
    *   at 50+ yards.
    *    
-   *   @return double
+   *   @return The number of fields goals successfully executed by this player
+   *   from the 50th yards and below as a double 
    */
   public double get50PlusFieldGoals()
   {
@@ -81,7 +86,9 @@ public class FGDistanceStats
   /**
    *   Setter function to save off the number of field goals made
    *   between 10 and 19 yards.
-   *    
+   *   
+   *   @param The number of fields goals successfully executed by this player
+   *   from the 10th to the 19th yard as a double 
    */
   public void set10To19FieldGoals(double goals)
   {
@@ -91,7 +98,9 @@ public class FGDistanceStats
   /**
    *   Setter function to save off the number of field goals made
    *   between 20 and 29 yards.
-   *    
+   *
+   *   @param The number of fields goals successfully executed by this player
+   *   from the 20th to the 29th yard as a double 
    */
   public void set20To29FieldGoals(double goals)
   {
@@ -100,7 +109,10 @@ public class FGDistanceStats
     
   /**
    *   Setter function to save off the number of field goals made
-   *   between 30 and 39 yards.    
+   *   between 30 and 39 yards.
+   * 
+   *   @param The number of fields goals successfully executed by this player
+   *   from the 30th to the 39th yard as a double
    */
   public void set30To39FieldGoals(double goals)
   {
@@ -110,6 +122,9 @@ public class FGDistanceStats
   /**
    *   Setter function to save off the number of field goals made
    *   between 40 and 49 yards.
+   * 
+   *  @param The number of fields goals successfully executed by this player
+   *   from the 40th to the 49th yard as a double 
    */
   public void set40To49FieldGoals(double goals)
   {
@@ -119,6 +134,8 @@ public class FGDistanceStats
   /**
    *   Setter function to save off the number of field goals made
    *   at 50+ yards.  
+   *   @param The number of fields goals successfully executed by this player
+   *   from the 50th yard and below as a double 
    */
   public void set50PlusFieldGoals(double goals)
   {
