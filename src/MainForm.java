@@ -2,7 +2,7 @@
 
 /**
  * This class is the main graphical element of this application. 
- * @author Nacer Abreu
+ * @author Nacer Abreu, Emmanuel Bonilla
  */
 public class MainForm extends javax.swing.JFrame {
 
@@ -174,7 +174,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Fiield Goals"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Field Goals"));
 
         ckBoxLongest.setText(" Longest Field Goal");
 
