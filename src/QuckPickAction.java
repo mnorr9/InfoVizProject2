@@ -70,12 +70,12 @@ public class QuckPickAction implements ActionListener {
 	}
 	
 	public void setQuickSearchPlayer(Kicker kicker) {
-		form.cmbBlueKicker.setSelectedIndex(0);
+		//form.cmbBlueKicker.setSelectedIndex(0);
 		// get selected item
 		ButtonModel bm = form.btnGrpPlayers.getSelection();
-        form.cmbRedKicker.setSelectedItem(kicker.getPlayerName());
-        //set select Item
-        form.btnGrpPlayers.setSelected(bm, true);
+            form.cmbRedKicker.setSelectedItem(kicker.getPlayerName());
+            //set select Item
+            form.btnGrpPlayers.setSelected(bm, true);
 	}
 
 }
